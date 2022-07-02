@@ -1,0 +1,36 @@
+// 1. Import the initial variables
+@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+
+// 2. Set your own initial variables
+$coffee: #533828;
+$coffee-invert: findColorInvert($coffee);
+$cornsilk: #FEFAE0;
+$cornsilk-invert: findColorInvert($cornsilk);
+$earth: #DB9D57;
+$earth-invert: findColorInvert($earth);
+$sky: #65caf6;
+$sky-invert: findColorInvert($sky);
+
+// Add a family
+$my-family: "Verdana", "Geneva", sans-serif;
+
+// 3. Set the derived variables
+// Primary etc
+$primary: $coffee;
+$primary-invert: $coffee-invert;
+// Use the new serif family
+$family-primary: $my-family;
+
+// 5. Add new color variables to the color map.
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+$addColors: (
+  "coffee":($coffee, $coffee-invert),
+  "cornsilk": ($cornsilk, $cornsilk-invert),
+  "earth": ($earth, $earth-invert),
+  "sky" : ($sky, $sky-invert)
+);
+$colors: map-merge($colors, $addColors);
+
+// 6. Import the rest of Bulma
+@import "../../../node_modules/bulma";
