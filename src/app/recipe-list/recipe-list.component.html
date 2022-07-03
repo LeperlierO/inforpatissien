@@ -1,3 +1,89 @@
-<div *ngFor="let recipe of recipes; index as idx">
-    <p>{{recipe.name}}</p>
+<div class="container is-max-widescreen section">
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-8">
+      <div class="tile">
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-success tile-back" style="background-image:url({{recipes[0].mainPhoto.url}});">
+            <p class="title">{{recipes[0].name}}</p>
+            <p class="subtitle">{{recipes[0].description}}</p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-success tile-back"
+          style="background-image:url({{recipes[1].mainPhoto.url}});">
+            <div class="content">
+              <p class="title">{{recipes[1].name}}</p>
+              <p class="subtitle">{{recipes[1].description}}</p>
+              <div class="content">
+                .
+              </div>
+              <p class="subtitle">.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-success tile-back" style="background-image:url({{recipes[2].mainPhoto.url}});">
+          <p class="title">{{recipes[2].name}}</p>
+          <p class="subtitle">{{recipes[2].description}}</p>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-success tile-back" style="background-image:url({{recipes[3].mainPhoto.url}});">
+        <p class="title">{{recipes[3].name}}</p>
+        <p class="subtitle">{{recipes[3].description}}</p>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-success tile-back" style="background-image:url({{recipes[4].mainPhoto.url}});">
+        <p class="title">{{recipes[4].name}}</p>
+        <p class="subtitle">{{recipes[4].description}}</p>
+      </article>
+    </div>
+    <div class="tile is-vertical is-8">
+      <div class="tile">
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-success tile-back" style="background-image:url({{recipes[5].mainPhoto.url}});">
+            <p class="title">{{recipes[5].name}}</p>
+            <p class="subtitle">{{recipes[5].description}}</p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-success tile-back"
+          style="background-image:url({{recipes[6].mainPhoto.url}});">
+            <div class="content">
+              <p class="title">{{recipes[6].name}}</p>
+              <p class="subtitle">{{recipes[6].description}}</p>
+              <div class="content">
+                .
+              </div>
+              <p class="subtitle">.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-success tile-back" style="background-image:url({{recipes[7].mainPhoto.url}});">
+          <p class="title">{{recipes[7].name}}</p>
+          <p class="subtitle">{{recipes[7].description}}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <nav class="section pagination is-centered" role="navigation" aria-label="pagination">
+    <a class="pagination-previous" (click)="current > 1 && getRecipes(current - 1)">Précédent</a>
+    <a class="pagination-next" (click)="current < size && getRecipes(current + 1)">Suivant</a>
+    <ul class="pagination-list">
+      <li><a class="pagination-link" (click)="getRecipes(1)">1</a></li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li><a class="pagination-link is-current" aria-current="page">{{current}}</a></li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li><a class="pagination-link" (click)="getRecipes(size)">{{size}}</a></li>
+    </ul>
+  </nav>
+
 </div>

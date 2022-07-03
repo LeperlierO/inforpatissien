@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../models/recipe';
+import { MiniRecipe } from '../models/recipe';
 import { RecipeService } from '../services/recipe.service';
 
 @Component({
@@ -9,21 +9,25 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[] = [];
+  recipes: MiniRecipe[] = [];
+  current!: number;
+  size!: number;
   error = '';
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.getRecipes();
+    this.getRecipes(1);
   }
 
-  getRecipes(){
+  getRecipes(page: number){
 
-    this.recipeService.getRecipes()
+    this.recipeService.getRecipes(page)
     .subscribe({
-      next: (recipes) => {
-        this.recipes = recipes;
+      next: (response) => {
+        this.recipes = response.data;
+        this.current = response.current;
+        this.size = response.size;
       },
       error: (error) => {
         this.error = error;
