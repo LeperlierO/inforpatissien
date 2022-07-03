@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MiniRecipe } from '../models/recipe';
+import { Observable } from 'rxjs';
+import { MiniRecipe, MiniRecipeResponse } from '../models/recipe';
 import { RecipeService } from '../services/recipe.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: MiniRecipe[] = [];
+  recipes!: MiniRecipe[];
   current!: number;
   size!: number;
   error = '';
