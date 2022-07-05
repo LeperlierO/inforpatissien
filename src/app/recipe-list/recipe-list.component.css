@@ -1,3 +1,7 @@
-.tile-back {
+.tile {
     background-size: cover;
+}
+
+.tile-sm{
+    height: 14rem !important;
 }
