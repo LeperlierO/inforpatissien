@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipeHeaderComponent } from './recipe-header/recipe-header.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RecipeHeaderComponent } from './recipe-header/recipe-header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

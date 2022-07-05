@@ -2,27 +2,27 @@
   <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
       <div class="tile">
-        <div class="tile is-parent" (click)="goDetails(recipes[0].id)">
+        <div class="tile is-parent" (click)="goDetails(recipes[0].code)">
           <article class="tile is-child notification has-text-white tile-sm" style="background-image:url({{recipes[0].mainPhoto.url}});">
             <p class="title">{{recipes[0].name}}</p>
             <p class="subtitle">{{recipes[0].description}}</p>
           </article>
         </div>
-        <div class="tile is-parent" (click)="goDetails(recipes[1].id)">
+        <div class="tile is-parent" (click)="goDetails(recipes[1].code)">
           <article class="tile is-child notification has-text-white tile-sm" style="background-image:url({{recipes[1].mainPhoto.url}});">
               <p class="title">{{recipes[1].name}}</p>
               <p class="subtitle">{{recipes[1].description}}</p>
           </article>
         </div>
       </div>
-      <div class="tile is-parent" (click)="goDetails(recipes[2].id)">
+      <div class="tile is-parent" (click)="goDetails(recipes[2].code)">
         <article class="tile is-child notification has-text-white" style="background-image:url({{recipes[2].mainPhoto.url}});">
           <p class="title">{{recipes[2].name}}</p>
           <p class="subtitle">{{recipes[2].description}}</p>
         </article>
       </div>
     </div>
-    <div class="tile is-parent" (click)="goDetails(recipes[3].id)">
+    <div class="tile is-parent" (click)="goDetails(recipes[3].code)">
       <article class="tile is-child notification has-text-white" style="background-image:url({{recipes[3].mainPhoto.url}});">
         <p class="title">{{recipes[3].name}}</p>
         <p class="subtitle">{{recipes[3].description}}</p>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="tile is-ancestor">
-    <div class="tile is-parent" (click)="goDetails(recipes[4].id)">
+    <div class="tile is-parent" (click)="goDetails(recipes[4].code)">
       <article class="tile is-child notification has-text-white" style="background-image:url({{recipes[4].mainPhoto.url}});">
         <p class="title">{{recipes[4].name}}</p>
         <p class="subtitle">{{recipes[4].description}}</p>
@@ -38,13 +38,13 @@
     </div>
     <div class="tile is-vertical is-8">
       <div class="tile">
-        <div class="tile is-parent" (click)="goDetails(recipes[5].id)">
+        <div class="tile is-parent" (click)="goDetails(recipes[5].code)">
           <article class="tile is-child notification has-text-white tile-sm" style="background-image:url({{recipes[5].mainPhoto.url}});">
             <p class="title">{{recipes[5].name}}</p>
             <p class="subtitle">{{recipes[5].description}}</p>
           </article>
         </div>
-        <div class="tile is-parent" (click)="goDetails(recipes[6].id)">
+        <div class="tile is-parent" (click)="goDetails(recipes[6].code)">
           <article class="tile is-child notification has-text-white tile-sm"
           style="background-image:url({{recipes[6].mainPhoto.url}});">
             <div class="content">
@@ -54,7 +54,7 @@
           </article>
         </div>
       </div>
-      <div class="tile is-parent" (click)="goDetails(recipes[7].id)">
+      <div class="tile is-parent" (click)="goDetails(recipes[7].code)">
         <article class="tile is-child notification has-text-white" style="background-image:url({{recipes[7].mainPhoto.url}});">
           <p class="title">{{recipes[7].name}}</p>
           <p class="subtitle">{{recipes[7].description}}</p>

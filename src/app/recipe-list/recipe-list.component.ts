@@ -39,8 +39,8 @@ export class RecipeListComponent implements OnInit {
     
   }
 
-  goDetails(id: number){
-    this.router.navigate(['/recettes/' + id])
+  goDetails(code: string){
+    this.router.navigate(['/recettes/' + code])
   }
 
 }

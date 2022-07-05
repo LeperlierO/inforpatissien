@@ -1,4 +1,4 @@
-<section class="hero is-info is-fullheight bd-img-receipe">
+<section class="hero is-info is-fullheight bd-img-receipe" style="background-image:url({{recipe.photos[0].url}}); background-position: 50% 50%;">
 
     <app-navbar></app-navbar>
   
@@ -6,10 +6,10 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <p class="title" style="font-family: Abril;">
-          Nom de la recette
+          {{recipe.name}}
         </p>
         <p class="subtitle" style="font-family: Abril;">
-          Détails
+          {{recipe.description}}
         </p>
       </div>
     </div>

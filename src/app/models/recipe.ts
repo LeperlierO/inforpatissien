@@ -1,6 +1,23 @@
+import { Time } from "@angular/common";
+
+export class Recipe
+{
+    id!: number;
+    code!: string;
+    name!: string;
+    description!: string;
+    date!: Date;
+    success!: number;
+    difficulty!: number;
+    time!: Time;
+    cost!: number
+    photos!: RecipePhoto[];
+}
+
 export class MiniRecipe
 {
     id!: number;
+    code!: string;
     name!: string;
     description!: string;
     mainPhoto!: RecipePhoto;
@@ -9,6 +26,7 @@ export class MiniRecipe
 export class RecipePhoto
 {
     id!: number;
+    code!: string;
     name!: string;
     description!: string;
     url!: string;
