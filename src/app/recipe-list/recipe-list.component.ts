@@ -29,6 +29,7 @@ export class RecipeListComponent implements OnInit {
         this.recipes = response.data;
         this.current = response.current;
         this.size = response.size;
+        window.scroll(0,0);
       },
       error: (error) => {
         this.error = error;
