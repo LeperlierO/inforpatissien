@@ -1,2 +1,3 @@
-<app-header></app-header>
+<app-header *ngIf="!route.url.startsWith('/recettes/')"></app-header>
+<app-recipe-header *ngIf="route.url.startsWith('/recettes/')"></app-recipe-header>
 <router-outlet></router-outlet>

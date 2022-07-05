@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MiniRecipe, MiniRecipeResponse } from '../models/recipe';
 import { RecipeService } from '../services/recipe.service';
@@ -15,7 +16,7 @@ export class RecipeListComponent implements OnInit {
   size!: number;
   error = '';
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit(): void {
     this.getRecipes(1);
@@ -36,6 +37,10 @@ export class RecipeListComponent implements OnInit {
       }
     })
     
+  }
+
+  goDetails(id: number){
+    this.router.navigate(['/recettes/' + id])
   }
 
 }
