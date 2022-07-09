@@ -24,17 +24,25 @@ export class RecipeDetailsComponent implements OnInit {
   getRecipe(code: string){
 
     window.scroll(0,0);
-    
-    this.recipeService.getRecipe(code)
-    .subscribe({
-      next: (response) => {
-        this.recipe = response;
-        this.images = response.photos.map((img) => ({path: img.url}))
-      },
-      error: (error) => {
-        this.error = error;
-      }
-    })
+
+    if(this.recipeService.recipesPage != undefined && this.recipeService.recipesPage != null)
+      this.recipe = this.recipeService.recipesPage.data.find(r => r.code == code)!;
+
+    // call api if necessary
+    if(this.recipe == undefined || this.recipe == null){
+      this.recipeService.getRecipe(code)
+      .subscribe({
+        next: (response) => {
+          this.recipe = response;
+          this.images = response.photos.map((img) => ({path: img.url}))
+        },
+        error: (error) => {
+          this.error = error;
+        }
+      })
+    }else{
+      this.images = this.recipe.photos.map((img) => ({path: img.url}));
+    }
     
   }
 

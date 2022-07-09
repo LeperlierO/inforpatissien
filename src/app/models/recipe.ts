@@ -12,6 +12,7 @@ export class Recipe
     time!: Time;
     cost!: number
     photos!: RecipePhoto[];
+    mainPhoto!: RecipePhoto;
 }
 
 export class MiniRecipe
@@ -40,9 +41,9 @@ export class RecipePhotoPosition
     horizontally!: number;
 }
 
-export class MiniRecipeResponse
+export class RecipePagination
 {
     current!: number;
     size!: number;
-    data!: MiniRecipe[];
+    data!: Recipe[];
 }
