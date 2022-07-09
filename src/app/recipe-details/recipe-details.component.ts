@@ -23,12 +23,13 @@ export class RecipeDetailsComponent implements OnInit {
 
   getRecipe(code: string){
 
+    window.scroll(0,0);
+    
     this.recipeService.getRecipe(code)
     .subscribe({
       next: (response) => {
         this.recipe = response;
         this.images = response.photos.map((img) => ({path: img.url}))
-        window.scroll(0,0);
       },
       error: (error) => {
         this.error = error;
