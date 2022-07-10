@@ -25,15 +25,13 @@ export class RecipeDetailsComponent implements OnInit {
 
     window.scroll(0,0);
 
-    if(this.recipeService.recipesPage != undefined && this.recipeService.recipesPage != null)
-      this.recipe = this.recipeService.recipesPage.data.find(r => r.code == code)!;
-
     // call api if necessary
-    if(this.recipe == undefined || this.recipe == null){
+    if(this.recipeService.recipesPage == undefined || this.recipeService.recipesPage == null || this.recipeService.recipesPage.data.find(r => r.code == code) == undefined){
       this.recipeService.getRecipe(code)
       .subscribe({
         next: (response) => {
           this.recipe = response;
+          this.recipe.mainPhoto = response.photos.find(p => p.main)!;
           this.images = response.photos.map((img) => ({path: img.url}))
         },
         error: (error) => {
@@ -41,6 +39,7 @@ export class RecipeDetailsComponent implements OnInit {
         }
       })
     }else{
+      this.recipe = this.recipeService.recipesPage.data.find(r => r.code == code)!;
       this.images = this.recipe.photos.map((img) => ({path: img.url}));
     }
     
