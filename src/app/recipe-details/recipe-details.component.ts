@@ -42,6 +42,8 @@ export class RecipeDetailsComponent implements OnInit {
       this.recipe = this.recipeService.recipesPage.data.find(r => r.code == code)!;
       this.images = this.recipe.photos.map((img) => ({path: img.url}));
     }
+
+    console.log(this.recipe);
     
   }
 

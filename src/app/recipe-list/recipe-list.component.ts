@@ -32,6 +32,8 @@ export class RecipeListComponent implements OnInit {
 
   getRecipes(page: number){
 
+    window.scroll(0,0);
+    
     if(this.recipeService.recipesPage != undefined && 
        this.recipeService.recipesPage != null &&
        this.recipeService.recipesPage.current == page)
@@ -51,7 +53,6 @@ export class RecipeListComponent implements OnInit {
           this.current = response.current;
           this.size = response.size;
           this.recipeService.recipesPage = response;
-          window.scroll(0,0);
         },
         error: (error) => {
           this.error = error;
