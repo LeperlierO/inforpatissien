@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/5d2a6b65-bfa5-4864-a1aa-e0d9e6a614fc/AppServices/subscriptions/5d2a6b65-bfa5-4864-a1aa-e0d9e6a614fc/resourceGroups/inforpatissien/providers/Microsoft.Web/sites/inforpatissien",
+    "appService.deploySubpath": "dist\\inforpatissien"
+}

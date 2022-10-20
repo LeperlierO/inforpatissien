@@ -12,6 +12,12 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipeHeaderComponent } from './recipe-header/recipe-header.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat'
+import { } from '@angular/fire/database'
 
 @NgModule({
   declarations: [
@@ -28,7 +34,11 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    AngularFireModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -28,4 +28,5 @@ export class RecipeService {
         `${this.serverUrl}${this.recipePath}/` + code
       );
   }
+
 }
