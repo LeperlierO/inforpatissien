@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipeHeaderComponent } from './recipe-header.component';
@@ -8,6 +9,7 @@ describe('RecipeHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [ RecipeHeaderComponent ]
     })
     .compileComponents();
