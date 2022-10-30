@@ -1,6 +1,6 @@
 <app-recipe-header [recipe]="recipe"></app-recipe-header>
 
-<section class="section is-small">
+<section class="section is-small" *ngIf="recipe !== undefined && recipe !== null">
     <div class="container is-max-desktop">
       <nav class="level">
         <div class="level-item has-text-centered">

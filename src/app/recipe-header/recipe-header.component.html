@@ -1,4 +1,4 @@
-<section class="hero is-info is-fullheight bd-img-receipe" style="background-image:url({{recipe.mainPhoto.url}}); background-position: 50% 50%;">
+<section *ngIf="recipe !== undefined && recipe !== null" class="hero is-info is-fullheight bd-img-receipe" style="background-image:url({{recipe.mainPhoto.url}}); background-position: 50% 50%;">
 
     <app-navbar></app-navbar>
   
