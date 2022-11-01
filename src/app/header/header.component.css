@@ -1,8 +1,9 @@
 .bg-img { 
-    background-image: url(https://www.hervecuisine.com/wp-content/uploads/2017/03/recette-royal-chocolat-1118x516.jpg.webp) ;
+    background-image: url(../../assets/images/pastry.jpg) ;
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
     background-size:  cover;
     background-color: #999;
+    background-position: 0% 120%;
 }
