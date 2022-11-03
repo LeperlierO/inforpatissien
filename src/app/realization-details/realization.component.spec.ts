@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { RealizationDetailsComponent } from './realization-details.component';
 
-describe('RecipeDetailsComponent', () => {
+describe('RealizationDetailsComponent', () => {
   let component: RealizationDetailsComponent;
   let fixture: ComponentFixture<RealizationDetailsComponent>;
 

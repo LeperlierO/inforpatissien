@@ -15,6 +15,8 @@ export class RealizationListComponent implements OnInit {
   current!: number;
   size!: number;
   error = '';
+  hover?: Realization;
+  loader!: boolean;
 
   constructor(private realizationService: RealizationService, private router: Router, private route: ActivatedRoute) { 
     router.events.subscribe((val) => {
@@ -26,8 +28,12 @@ export class RealizationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.hover = undefined;
+    this.loader = true;
     let page = this.route.snapshot.paramMap.get('page') ?? 1;
     this.getRealizations(+page);
+
+    setTimeout(() => {this.loader = false}, 2500);
   }
 
   getRealizations(page: number){

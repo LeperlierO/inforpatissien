@@ -1,87 +1,65 @@
-<div class="container is-max-widescreen section" *ngIf="realizations !== undefined && realizations !== null">
+<div class="container is-max-widescreen section" style="  display: flex; justify-content: center; align-items: center;" *ngIf="loader">
+  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
 
-  <div style="background-image: url({{realizations[0].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[0].mainPhoto.url}}" style="display:none" />
-  </div>
-  <div style="background-image: url({{realizations[1].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[1].mainPhoto.url}}" style="display:none" />
-  </div>
-  <div style="background-image: url({{realizations[2].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[2].mainPhoto.url}}" style="display:none" />
-  </div>
-  <div style="background-image: url({{realizations[3].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[3].mainPhoto.url}}" style="display:none" />
-  </div>
-  <div style="background-image: url({{realizations[4].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[4].mainPhoto.url}}" style="display:none" />
-  </div>
-  <div style="background-image: url({{realizations[5].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[5].mainPhoto.url}}" style="display:none" />
-  </div>
-  <div style="background-image: url({{realizations[6].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[6].mainPhoto.url}}" style="display:none" />
-  </div>
-  <div style="background-image: url({{realizations[7].mainPhoto.url}}); background-size: cover">
-    <img src="{{realizations[7].mainPhoto.url}}" style="display:none" />
-  </div>
-
+<div class="container is-max-widescreen section" *ngIf="realizations !== undefined && realizations !== null && !loader">
   <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
       <div class="tile">
         <div class="tile is-parent" [routerLink]="['/realisations', realizations[0].code]">
-          <article class="tile is-child notification has-text-white tile-sm" style="background-image:url({{realizations[0].mainPhoto.url}}); background-position: {{realizations[0].mainPhoto.position.vertically +'% '+realizations[0].mainPhoto.position.horizontally+'%;'}}">
+          <article (mouseover)="hover=realizations[0]" (mouseout)="hover=undefined" class="tile is-child notification has-text-white tile-sm ifp-tile" style="background-image:url({{realizations[0].mainPhoto.url}}); background-position: {{realizations[0].mainPhoto.position.vertically +'% '+realizations[0].mainPhoto.position.horizontally+'%;'}}">
             <p class="title">{{realizations[0].name}}</p>
-            <p class="subtitle">{{realizations[0].description}}</p>
+            <p class="subtitle" *ngIf="hover==realizations[0]">{{realizations[0].description}}</p>
           </article>
         </div>
         <div class="tile is-parent" [routerLink]="['/realisations', realizations[1].code]">
-          <article class="tile is-child notification has-text-white tile-sm" style="background-image:url({{realizations[1].mainPhoto.url}}); background-position: {{realizations[1].mainPhoto.position.vertically +'% '+realizations[1].mainPhoto.position.horizontally+'%;'}}">
+          <article  (mouseover)="hover=realizations[1]" (mouseout)="hover=undefined" class="tile is-child notification has-text-white tile-sm ifp-tile" style="background-image:url({{realizations[1].mainPhoto.url}}); background-position: {{realizations[1].mainPhoto.position.vertically +'% '+realizations[1].mainPhoto.position.horizontally+'%;'}}">
               <p class="title">{{realizations[1].name}}</p>
-              <p class="subtitle">{{realizations[1].description}}</p>
+              <p class="subtitle" *ngIf="hover==realizations[1]">{{realizations[1].description}}</p>
           </article>
         </div>
       </div>
       <div class="tile is-parent" [routerLink]="['/realisations', realizations[2].code]">
-        <article class="tile is-child notification has-text-white" style="background-image:url({{realizations[2].mainPhoto.url}}); background-position: {{realizations[2].mainPhoto.position.vertically +'% '+realizations[2].mainPhoto.position.horizontally+'%;'}}">
+        <article (mouseover)="hover=realizations[2]" (mouseout)="hover=undefined" class="tile is-child notification has-text-white ifp-tile" style="background-image:url({{realizations[2].mainPhoto.url}}); background-position: {{realizations[2].mainPhoto.position.vertically +'% '+realizations[2].mainPhoto.position.horizontally+'%;'}}">
           <p class="title">{{realizations[2].name}}</p>
           <p class="subtitle">{{realizations[2].description}}</p>
         </article>
       </div>
     </div>
     <div class="tile is-parent" [routerLink]="['/realisations', realizations[3].code]">
-      <article class="tile is-child notification has-text-white" style="background-image:url({{realizations[3].mainPhoto.url}}); background-position: {{realizations[3].mainPhoto.position.vertically +'% '+realizations[3].mainPhoto.position.horizontally+'%;'}}">
+      <article (mouseover)="hover=realizations[3]" (mouseout)="hover=undefined" class="tile is-child notification has-text-white ifp-tile" style="background-image:url({{realizations[3].mainPhoto.url}}); background-position: {{realizations[3].mainPhoto.position.vertically +'% '+realizations[3].mainPhoto.position.horizontally+'%;'}}">
         <p class="title">{{realizations[3].name}}</p>
-        <p class="subtitle">{{realizations[3].description}}</p>
+        <p class="subtitle" *ngIf="hover==realizations[3]">{{realizations[3].description}}</p>
       </article>
     </div>
   </div>
   <div class="tile is-ancestor">
     <div class="tile is-parent" [routerLink]="['/realisations', realizations[4].code]">
-      <article class="tile is-child notification has-text-white" style="background-image:url({{realizations[4].mainPhoto.url}}); background-position: {{realizations[4].mainPhoto.position.vertically +'% '+realizations[4].mainPhoto.position.horizontally+'%;'}}">
+      <article (mouseover)="hover=realizations[4]" (mouseout)="hover=undefined" class="tile is-child notification has-text-white ifp-tile" style="background-image:url({{realizations[4].mainPhoto.url}}); background-position: {{realizations[4].mainPhoto.position.vertically +'% '+realizations[4].mainPhoto.position.horizontally+'%;'}}">
         <p class="title">{{realizations[4].name}}</p>
-        <p class="subtitle">{{realizations[4].description}}</p>
+        <p class="subtitle" *ngIf="hover==realizations[4]">{{realizations[4].description}}</p>
       </article>
     </div>
     <div class="tile is-vertical is-8">
       <div class="tile">
         <div class="tile is-parent" [routerLink]="['/realisations', realizations[5].code]">
-          <article class="tile is-child notification has-text-white tile-sm" style="background-image:url({{realizations[5].mainPhoto.url}}); background-position: {{realizations[5].mainPhoto.position.vertically +'% '+realizations[5].mainPhoto.position.horizontally+'%;'}}">
+          <article (mouseover)="hover=realizations[5]" (mouseout)="hover=undefined" class="tile is-child notification has-text-white tile-sm ifp-tile" style="background-image:url({{realizations[5].mainPhoto.url}}); background-position: {{realizations[5].mainPhoto.position.vertically +'% '+realizations[5].mainPhoto.position.horizontally+'%;'}}">
             <p class="title">{{realizations[5].name}}</p>
-            <p class="subtitle">{{realizations[5].description}}</p>
+            <p class="subtitle" *ngIf="hover==realizations[5]">{{realizations[5].description}}</p>
           </article>
         </div>
         <div class="tile is-parent" [routerLink]="['/realisations', realizations[6].code]">
-          <article class="tile is-child notification has-text-white tile-sm"
+          <article (mouseover)="hover=realizations[6]" (mouseout)="hover=undefined" class="tile is-child notification has-text-white tile-sm ifp-tile"
           style="background-image:url({{realizations[6].mainPhoto.url}}); background-position: {{realizations[6].mainPhoto.position.vertically +'% '+realizations[6].mainPhoto.position.horizontally+'%;'}}">
             <div class="content">
               <p class="title">{{realizations[6].name}}</p>
-              <p class="subtitle">{{realizations[6].description}}</p>
+              <p class="subtitle" *ngIf="hover==realizations[6]">{{realizations[6].description}}</p>
             </div>
           </article>
         </div>
       </div>
       <div class="tile is-parent" [routerLink]="['/realisations', realizations[7].code]">
-        <article class="tile is-child notification has-text-white" style="background-image:url({{realizations[7].mainPhoto.url}}); background-position: {{realizations[7].mainPhoto.position.vertically +'% '+realizations[7].mainPhoto.position.horizontally+'%;'}}">
+        <article class="tile is-child notification has-text-white ifp-tile" style="background-image:url({{realizations[7].mainPhoto.url}}); background-position: {{realizations[7].mainPhoto.position.vertically +'% '+realizations[7].mainPhoto.position.horizontally+'%;'}}">
           <p class="title">{{realizations[7].name}}</p>
           <p class="subtitle">{{realizations[7].description}}</p>
         </article>
