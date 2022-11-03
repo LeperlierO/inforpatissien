@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MiniRecipe, Recipe } from '../models/recipe';
-import { RecipeService } from '../services/recipe.service';
+import { MiniRecipe, Recipe } from '../models/realization';
+import { RecipeService } from '../services/realization.service';
 
 @Component({
   selector: 'app-recipe-header',
   templateUrl: './recipe-header.component.html',
   styleUrls: ['./recipe-header.component.css']
 })
-export class RecipeHeaderComponent implements OnInit {
+export class RealizationHeaderComponent implements OnInit {
 
   @Input() recipe!: Recipe;
   

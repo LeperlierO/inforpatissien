@@ -1,46 +1,46 @@
-<app-recipe-header [recipe]="recipe"></app-recipe-header>
+<app-realization-header [realization]="realization"></app-realization-header>
 
-<section class="section is-small" *ngIf="recipe !== undefined && recipe !== null">
+<section class="section is-small" *ngIf="realization !== undefined && realization !== null">
     <div class="container is-max-desktop">
       <nav class="level">
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Résultat</p>
-            <span class="tag is-success is-medium" *ngIf="recipe.success==1">Top</span>
-            <span class="tag is-danger is-medium" *ngIf="recipe.success==0">Flop</span>
+            <span class="tag is-success is-medium" *ngIf="realization.success==1">Top</span>
+            <span class="tag is-danger is-medium" *ngIf="realization.success==0">Flop</span>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Difficulté</p>
-            <span class="tag is-success is-medium" *ngIf="recipe.difficulty==0">Facile</span>
-            <span class="tag is-warning is-medium" *ngIf="recipe.difficulty==1">Moyen</span>
-            <span class="tag is-danger is-medium" *ngIf="recipe.difficulty==2">Difficile</span>
+            <span class="tag is-success is-medium" *ngIf="realization.difficulty==0">Facile</span>
+            <span class="tag is-warning is-medium" *ngIf="realization.difficulty==1">Moyen</span>
+            <span class="tag is-danger is-medium" *ngIf="realization.difficulty==2">Difficile</span>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Temps</p>
-            <span class="tag is-medium">{{recipe.time}}</span>
+            <span class="tag is-medium">{{realization.time}}</span>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Prix</p>
-            <span class="tag is-medium">{{recipe.cost}}€</span>
+            <span class="tag is-medium">{{realization.cost}}€</span>
           </div>
         </div>
       </nav>
     </div>
   </section>
   
-  <div class="container is-max-widescreen section" *ngIf="recipe !== undefined && recipe !== null">
+  <div class="container is-max-widescreen section" *ngIf="realization !== undefined && realization !== null">
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <article class="message">
           <div class="message-body">
-            <p class="title is-6">Réalisée le {{recipe.date | date: 'dd/MM/yyyy'}}</p>
-            <p class="title is-6">Recette du livre ...</p>
+            <p class="title is-6">Réalisée le {{realization.date | date: 'dd/MM/yyyy'}}</p>
+            <p class="title is-6">Réalisation du livre ...</p>
             <div class="is-divider"></div>
           </div>
         </article>

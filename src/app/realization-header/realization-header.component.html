@@ -1,4 +1,4 @@
-<section *ngIf="recipe !== undefined && recipe !== null" class="hero is-info is-fullheight bd-img-receipe" style="background-image:url({{recipe.mainPhoto.url}}); background-position: 50% 50%;">
+<section *ngIf="realization !== undefined && realization !== null" class="hero is-info is-fullheight bd-img-receipe" style="background-image:url({{realization.mainPhoto.url}}); background-position: 50% 50%;">
 
     <app-navbar></app-navbar>
   
@@ -6,10 +6,10 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <p class="title" style="font-family: Abril;">
-          {{recipe.name}}
+          {{realization.name}}
         </p>
         <p class="subtitle" style="font-family: Abril;">
-          {{recipe.description}}
+          {{realization.description}}
         </p>
       </div>
     </div>

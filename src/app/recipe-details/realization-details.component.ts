@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Recipe } from '../models/recipe';
-import { RecipeService } from '../services/recipe.service';
+import { Recipe } from '../models/realization';
+import { RecipeService } from '../services/realization.service';
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.css']
 })
-export class RecipeDetailsComponent implements OnInit {
+export class RealizationDetailsComponent implements OnInit {
 
   images: any[] = [];
   recipe!: Recipe;

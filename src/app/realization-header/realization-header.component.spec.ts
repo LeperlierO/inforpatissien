@@ -2,23 +2,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { RecipeHeaderComponent } from './recipe-header.component';
+import { RealizationHeaderComponent } from './realization-header.component';
 
-describe('RecipeHeaderComponent', () => {
-  let component: RecipeHeaderComponent;
-  let fixture: ComponentFixture<RecipeHeaderComponent>;
+describe('RealizationHeaderComponent', () => {
+  let component: RealizationHeaderComponent;
+  let fixture: ComponentFixture<RealizationHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule,
         RouterTestingModule],
-      declarations: [ RecipeHeaderComponent ]
+      declarations: [ RealizationHeaderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecipeHeaderComponent);
+    fixture = TestBed.createComponent(RealizationHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

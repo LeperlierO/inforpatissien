@@ -1,6 +1,6 @@
 import { Time } from "@angular/common";
 
-export class Recipe
+export class Realization
 {
     id!: number;
     code!: string;
@@ -11,20 +11,20 @@ export class Recipe
     difficulty!: number;
     time!: Time;
     cost!: number
-    photos!: RecipePhoto[];
-    mainPhoto!: RecipePhoto;
+    photos!: RealizationPhoto[];
+    mainPhoto!: RealizationPhoto;
 }
 
-export class MiniRecipe
+export class MiniRealization
 {
     id!: number;
     code!: string;
     name!: string;
     description!: string;
-    mainPhoto!: RecipePhoto;
+    mainPhoto!: RealizationPhoto;
 }
 
-export class RecipePhoto
+export class RealizationPhoto
 {
     id!: number;
     code!: string;
@@ -32,18 +32,18 @@ export class RecipePhoto
     description!: string;
     url!: string;
     main!: boolean;
-    position!: RecipePhotoPosition;
+    position!: RealizationPhotoPosition;
 }
 
-export class RecipePhotoPosition
+export class RealizationPhotoPosition
 {
     vertically!: number;
     horizontally!: number;
 }
 
-export class RecipePagination
+export class RealizationPagination
 {
     current!: number;
     size!: number;
-    data!: Recipe[];
+    data!: Realization[];
 }

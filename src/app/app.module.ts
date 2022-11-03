@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RealizationListComponent } from './realization-list/realization-list.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { RecipeCardComponent } from './recipe-card/recipe-card.component';
-import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
-import { RecipeHeaderComponent } from './recipe-header/recipe-header.component';
+import { RealizationCardComponent } from './realization-card/realization-card.component';
+import { RealizationDetailsComponent } from './realization-details/realization-details.component';
+import { RealizationHeaderComponent } from './realization-header/realization-header.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -25,10 +25,10 @@ import { } from '@angular/fire/database'
     NavbarComponent,
     HeaderComponent,
     HomeComponent,
-    RecipeListComponent,
-    RecipeCardComponent,
-    RecipeDetailsComponent,
-    RecipeHeaderComponent
+    RealizationListComponent,
+    RealizationCardComponent,
+    RealizationDetailsComponent,
+    RealizationHeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -2,23 +2,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { RecipeListComponent } from './recipe-list.component';
+import { RealizationCardComponent } from './realization-card.component';
 
-describe('RecipeListComponent', () => {
-  let component: RecipeListComponent;
-  let fixture: ComponentFixture<RecipeListComponent>;
+describe('RealizationCardComponent', () => {
+  let component: RealizationCardComponent;
+  let fixture: ComponentFixture<RealizationCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule,
         RouterTestingModule],
-      declarations: [ RecipeListComponent ]
+      declarations: [ RealizationCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecipeListComponent);
+    fixture = TestBed.createComponent(RealizationCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
