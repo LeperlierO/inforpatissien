@@ -29,7 +29,7 @@ export class RealizationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.hover = undefined;
-    this.loader = true;
+    this.loader = false;
     let page = this.route.snapshot.paramMap.get('page') ?? 1;
     this.getRealizations(+page);
 
