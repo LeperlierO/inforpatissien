@@ -15,7 +15,8 @@ export class RealizationListComponent implements OnInit {
   current!: number;
   size!: number;
   error = '';
-  loader!: boolean;
+
+  modalIsActive!: boolean;
 
   constructor(private realizationService: RealizationService, private router: Router, private route: ActivatedRoute) { 
     router.events.subscribe((val) => {
@@ -27,11 +28,8 @@ export class RealizationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loader = false;
     let page = this.route.snapshot.paramMap.get('page') ?? 1;
     this.getRealizations(+page);
-
-    setTimeout(() => {this.loader = false}, 2500);
   }
 
   getRealizations(page: number){
@@ -63,9 +61,12 @@ export class RealizationListComponent implements OnInit {
         }
       })
     }
+    
+  }
 
-    
-    
+  displayModal(active: boolean){
+    this.modalIsActive = active;
+    if(!active) this.getRealizations(1);
   }
 
 }

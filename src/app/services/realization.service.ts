@@ -17,6 +17,7 @@ export class RealizationService {
 
   public realizationsPage!: RealizationPagination;
   serverUrl = 'https://inforpatissien-api.azurewebsites.net'
+  //serverUrl = 'https://localhost:44383/';
   realizationPath = '/realizations'
 
   constructor(private http: HttpClient) { }

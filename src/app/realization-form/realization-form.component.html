@@ -1,85 +1,99 @@
-<section class="section is-small">
-    <div class="container is-max-desktop is-centered">
-
-        <div class="field">
-            <label class="label">Nom</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Nom" [(ngModel)]="name">
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Code</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Code" [(ngModel)]="code">
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Description</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Ingrédients principaux, goûts" [(ngModel)]="description">
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Date</label>
-            <div class="control">
-                <input id="datepickerDemo" class="input" type="date" value="11-02-2018" [(ngModel)]="date">
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Réussite</label>
-            <div class="control">
-                <div class="select">
-                <select [(ngModel)]="succes">
-                    <option value=0>Flop</option>
-                    <option value=1>Top</option>
-                </select>
+<div class="modal-background"></div>
+<div class="modal-card">
+  <header class="modal-card-head">
+    <p class="modal-card-title">Ajout d'une réalisation</p>
+    <button class="delete" aria-label="close" (click)="closeModal()"></button>
+  </header>
+  <section class="modal-card-body">
+    <section class="section is-small" style="padding-top:0px;">
+        <div class="container is-max-desktop is-centered">
+    
+            <div class="field is-horizontal">
+                <div class="field-body">
+                    <div class="field">
+                        <label class="label">Nom</label>
+                        <div class="control">
+                        <input class="input" type="text" placeholder="Nom" [(ngModel)]="name">
+                        </div>
+                    </div>
+            
+                    <div class="field">
+                        <label class="label">Code</label>
+                        <div class="control">
+                        <input class="input" type="text" placeholder="Code" [(ngModel)]="code">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-            
-        <div class="field">
-            <label class="label">Difficulté</label>
-            <div class="control">
-                <div class="select">
-                <select [(ngModel)]="difficulty">
-                    <option value=0>Facile</option>
-                    <option value=1>Moyen</option>
-                    <option value=2>Difficile</option>
-                </select>
+    
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ingrédients principaux, goûts" [(ngModel)]="description">
                 </div>
             </div>
-        </div>
-
-        <div class="field file has-name is-boxed">
-            <label class="file-label">
-              <input class="file-input" type="file" name="resume" (change)="uploadFile($event)">
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                  Choose a file…
-                </span>
-              </span>
-              <span class="file-name">
-                {{fileName}}
-              </span>
-            </label>
-        </div>
-
-        <h1>id de la recette créée : {{id}}</h1>
+    
+            <div class="field">
+                <label class="label">Date</label>
+                <div class="control">
+                    <input id="datepickerDemo" class="input" type="date" value="11-02-2018" [(ngModel)]="date">
+                </div>
+            </div>
+    
             
-        <div class="field is-grouped">
-            <div class="control">
-                <button class="button is-link" (click)="addRealization()">Enregistrer</button>
+            <div class="field is-horizontal">
+                <div class="field-body">
+                    <div class="field">
+                        <label class="label">Réussite</label>
+                        <div class="control">
+                            <div class="select">
+                            <select [(ngModel)]="succes" style="width : 100%;">
+                                <option value=0>Flop</option>
+                                <option value=1>Top</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="field">
+                        <label class="label">Difficulté</label>
+                        <div class="control">
+                            <div class="select">
+                            <select [(ngModel)]="difficulty">
+                                <option value=0>Facile</option>
+                                <option value=1>Moyen</option>
+                                <option value=2>Difficile</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="control">
-                <button class="button is-link is-light">Annuler</button>
+    
+            <label class="label">Photo principale</label>
+            <div class="field file has-name is-boxed">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="resume" (change)="uploadFile($event)">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Choose a file…
+                    </span>
+                  </span>
+                  <span class="file-name">
+                    {{fileName}}
+                  </span>
+                </label>
             </div>
+                
         </div>
-    </div>
-</section>
+    </section>
+  </section>
+  <footer class="modal-card-foot">
+    <button class="button is-primary" (click)="addRealization()" [ngClass]="{'is-loading':loading}">Enregistrer</button>
+    <button class="button" (click)="closeModal()">Annuler</button>
+  </footer>
+
+</div>
