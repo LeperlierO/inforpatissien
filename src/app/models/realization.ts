@@ -15,6 +15,19 @@ export class Realization
     mainPhoto!: RealizationPhoto;
 }
 
+export class BodyRealization{
+    id!: number;
+    code!: string;
+    name!: string;
+    description!: string;
+    date!: Date;
+    success!: number;
+    difficulty!: number;
+    time!: Time;
+    cost!: number
+    mainPhoto!: string;
+}
+
 export class MiniRealization
 {
     id!: number;

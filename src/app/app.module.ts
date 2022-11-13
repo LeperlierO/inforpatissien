@@ -17,7 +17,9 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat'
-import { } from '@angular/fire/database'
+import { } from '@angular/fire/database';
+import { RealizationFormComponent } from './realization-form/realization-form.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { } from '@angular/fire/database'
     RealizationListComponent,
     RealizationCardComponent,
     RealizationDetailsComponent,
-    RealizationHeaderComponent
+    RealizationHeaderComponent,
+    RealizationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { } from '@angular/fire/database'
     HttpClientModule,
     IvyCarouselModule,
     AngularFireModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
