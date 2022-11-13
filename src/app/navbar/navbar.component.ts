@@ -15,4 +15,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  disabledScroll(){
+    let body = document.querySelector("body");
+    if(body != null)body.style.position = body.style.position == 'fixed' ? '' : 'fixed';
+  }
+
 }
