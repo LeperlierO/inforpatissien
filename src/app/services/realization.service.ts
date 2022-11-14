@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BodyRealization, Realization, RealizationPagination } from '../models/realization';
+import { BodyRealization, MiniRealization, Realization, RealizationPagination } from '../models/realization';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,13 @@ export class RealizationService {
     return this.http
       .get<RealizationPagination>(
         `${this.serverUrl}${this.realizationPath}`, {params: params}
+      );
+  }
+
+  getMiniRealizations(): Observable<MiniRealization[]>{
+    return this.http
+      .get<MiniRealization[]>(
+        `${this.serverUrl}${this.realizationPath}-mini`
       );
   }
 

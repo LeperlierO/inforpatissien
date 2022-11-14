@@ -1,11 +1,4 @@
-<div class="modal" [ngClass]="{'is-active': modalIsActive}">
-  <app-realization-form (closeEvent)="displayModal($event)"></app-realization-form>
-</div>
-
 <div class="container is-max-widescreen section" *ngIf="realizations !== undefined && realizations !== null">
-  <section class="section is-centered">
-    <button class="button is-primary" (click)="displayModal(true)">Nouvelle réalisation</button>
-  </section>
   <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
       <div class="tile">

@@ -20,6 +20,8 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { } from '@angular/fire/database';
 import { RealizationFormComponent } from './realization-form/realization-form.component'
 import { FormsModule } from '@angular/forms';
+import { SettingsComponent } from './settings/settings.component';
+import { SettingsItemComponent } from './settings-item/settings-item.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     RealizationCardComponent,
     RealizationDetailsComponent,
     RealizationHeaderComponent,
-    RealizationFormComponent
+    RealizationFormComponent,
+    SettingsComponent,
+    SettingsItemComponent
   ],
   imports: [
     BrowserModule,

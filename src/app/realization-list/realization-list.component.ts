@@ -16,8 +16,6 @@ export class RealizationListComponent implements OnInit {
   size!: number;
   error = '';
 
-  modalIsActive!: boolean;
-
   constructor(private realizationService: RealizationService, private router: Router, private route: ActivatedRoute) { 
     router.events.subscribe((val) => {
       if(val instanceof NavigationEnd && val.url.includes("/page/")){
@@ -63,10 +61,4 @@ export class RealizationListComponent implements OnInit {
     }
     
   }
-
-  displayModal(active: boolean){
-    this.modalIsActive = active;
-    if(!active) this.getRealizations(1);
-  }
-
 }
