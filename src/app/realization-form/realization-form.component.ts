@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { BodyRealization, Realization } from '../models/realization';
 import { RealizationService } from '../services/realization.service';
 
@@ -10,13 +11,10 @@ import { RealizationService } from '../services/realization.service';
 export class RealizationFormComponent implements OnInit {
 
   @Output() closeEvent = new EventEmitter<boolean>();
-  body: BodyRealization = new BodyRealization;
-  name = '';
-  code = '';
-  description = '';
-  date : Date = new Date();
-  succes : number = 0;
-  difficulty : number = 0;
+  private showSubscription: Subscription = new Subscription();
+  @Input() show!: Observable<void>;
+
+  body: BodyRealization = new BodyRealization();
   fileName = '';
   file!: File;
   loading: boolean = false;
@@ -24,21 +22,19 @@ export class RealizationFormComponent implements OnInit {
   constructor(private realizationService: RealizationService) { }
 
   ngOnInit(): void {
+    this.showSubscription = this.show.subscribe(() => this.body = new BodyRealization());
+  }
+
+  ngOnDestroy() {
+    this.showSubscription.unsubscribe();
   }
 
   addRealization(){
     if(!this.loading){
       this.loading = true;
-
-      this.body.name = this.name;
-      this.body.code = this.code;
-      this.body.description = this.description;
-      this.body.date = this.date;
-      this.body.success = this.succes;
-      this.body.difficulty = this.difficulty;
       this.body.mainPhoto = '';
   
-      this.realizationService.uploadFile(this.file, this.code, this.fileName).subscribe(
+      this.realizationService.uploadFile(this.file, this.body.code, this.fileName).subscribe(
         (url: string) => {
           this.body.mainPhoto = url;
           this.realizationService.createRealization(this.body).subscribe(

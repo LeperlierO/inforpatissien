@@ -1,5 +1,5 @@
 <div class="modal" [ngClass]="{'is-active': modalIsActive}">
-  <app-realization-form (closeEvent)="displayModal($event)"></app-realization-form>
+  <app-realization-form (closeEvent)="displayModal($event)" [show]="showSubject.asObservable()"></app-realization-form>
 </div>
 
 <section class="section container is-max-desktop">

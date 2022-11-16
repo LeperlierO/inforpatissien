@@ -13,14 +13,14 @@
                     <div class="field">
                         <label class="label">Nom</label>
                         <div class="control">
-                        <input class="input" type="text" placeholder="Nom" [(ngModel)]="name">
+                        <input class="input" type="text" placeholder="Nom" [(ngModel)]="body.name">
                         </div>
                     </div>
             
                     <div class="field">
                         <label class="label">Code</label>
                         <div class="control">
-                        <input class="input" type="text" placeholder="Code" [(ngModel)]="code">
+                        <input class="input" type="text" placeholder="Code" [(ngModel)]="body.code">
                         </div>
                     </div>
                 </div>
@@ -29,14 +29,14 @@
             <div class="field">
                 <label class="label">Description</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Ingrédients principaux, goûts" [(ngModel)]="description">
+                  <input class="input" type="text" placeholder="Ingrédients principaux, goûts" [(ngModel)]="body.description">
                 </div>
             </div>
     
             <div class="field">
                 <label class="label">Date</label>
                 <div class="control">
-                    <input id="datepickerDemo" class="input" type="date" value="11-02-2018" [(ngModel)]="date">
+                    <input id="datepickerDemo" class="input" type="date" value="11-02-2018" [(ngModel)]="body.date">
                 </div>
             </div>
     
@@ -47,7 +47,7 @@
                         <label class="label">Réussite</label>
                         <div class="control">
                             <div class="select">
-                            <select [(ngModel)]="succes" style="width : 100%;">
+                            <select [(ngModel)]="body.success" style="width : 100%;">
                                 <option value=0>Flop</option>
                                 <option value=1>Top</option>
                             </select>
@@ -59,7 +59,7 @@
                         <label class="label">Difficulté</label>
                         <div class="control">
                             <div class="select">
-                            <select [(ngModel)]="difficulty">
+                            <select [(ngModel)]="body.difficulty">
                                 <option value=0>Facile</option>
                                 <option value=1>Moyen</option>
                                 <option value=2>Difficile</option>

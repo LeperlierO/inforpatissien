@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { RealizationService } from '../services/realization.service';
 import { toast } from 'bulma-toast';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-settings',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit {
 
+  showSubject: Subject<void> = new Subject<void>();
   realizations!: MiniRealization[];
   error: any;
 
@@ -38,7 +40,14 @@ export class SettingsComponent implements OnInit {
 
   displayModal(active: boolean){
     this.modalIsActive = active;
-    if(!active) this.getMiniRealizations();
+    if(!active)
+    {
+      this.getMiniRealizations();
+    }
+    else
+    {
+      this.showSubject.next();
+    }
   }
 
 
