@@ -38,8 +38,6 @@ export class RealizationListComponent implements OnInit {
     .subscribe({
       next: (response) => {
         if(response.data[0] != null) response.data.forEach(r => r.mainPhoto = r.photos.find(p => p.main)!);
-
-        response.data.forEach(r => console.log(r.mainPhoto));
         
         this.realizations = response.data;
         this.current = response.current;
