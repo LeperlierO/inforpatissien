@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MiniRealization } from '../models/realization';
+import { AuthService } from '../services/auth.service';
 import { RealizationService } from '../services/realization.service';
+import { toast } from 'bulma-toast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -14,9 +17,10 @@ export class SettingsComponent implements OnInit {
 
   modalIsActive!: boolean;
 
-  constructor(private realizationService: RealizationService) { }
+  constructor(private realizationService: RealizationService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.tokenValue) this.router.navigate(['/']);
     this.getMiniRealizations();
   }
 

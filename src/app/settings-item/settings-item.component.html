@@ -14,23 +14,29 @@
 
     <div class="list-item-controls">
       <div class="buttons">
-        <button class="button is-dark is-inverted">
+        <button class="button is-dark is-inverted" [routerLink]="['/realisations', realization.id]">
           <span class="icon">
-            <i class="fas fa-star"></i>
+            <i class="fas fa-eye"></i>
           </span>
         </button>
-        
-        <button class="button is-dark is-inverted">
+
+        <button class="button is-dark is-inverted" (click)="edit()">
           <span class="icon">
             <i class="fas fa-pencil-alt"></i>
           </span>
         </button>
+
+        <button class="button is-dark is-inverted" (click)="delete()">
+          <span class="icon">
+            <i class="fas fa-trash"></i>
+          </span>
+        </button>
         
-        <button class="button is-dark is-inverted">
+        <!--<button class="button is-dark is-inverted">
           <span class="icon">
             <i class="fas fa-ellipsis-v"></i>
           </span>
-        </button>
+        </button>-->
       </div>
     </div>
   </div>

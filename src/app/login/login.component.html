@@ -1,0 +1,43 @@
+<section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <h3 class="title has-text-centered">Connexion</h3>
+            <hr class="login-hr">
+            <form action="" class="box">
+              <div class="field">
+                <label for="" class="label">E-mail</label>
+                <div class="control has-icons-left">
+                  <input type="email" placeholder="abc@example.com" class="input" [(ngModel)]="body.email" name="email" required>
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="" class="label">Mot de passe</label>
+                <div class="control has-icons-left">
+                  <input type="password" placeholder="*******" class="input" [(ngModel)]="body.password" name="password" required>
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+              </div>
+              <!--<div class="field">
+                <label for="" class="checkbox">
+                  <input type="checkbox">
+                 Remember me
+                </label>
+              </div>-->
+              <div class="field">
+                <button class="button is-primary" (click)="tryLogin()">
+                  Connexion
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

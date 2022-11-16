@@ -17,33 +17,32 @@ export class RealizationDetailsComponent implements OnInit {
   constructor(private realizationService: RealizationService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let code = this.route.snapshot.paramMap.get('code');
-    this.getRealization(code ?? "");
+    let id = this.route.snapshot.paramMap.get('id');
+
+    if(id != null) this.getRealization(+id);
   }
 
-  getRealization(code: string){
+  getRealization(id: number){
 
     window.scroll(0,0);
 
     // call api if necessary
-    if(this.realizationService.realizationsPage == undefined || this.realizationService.realizationsPage == null || this.realizationService.realizationsPage.data.find(r => r.code == code) == undefined){
-      this.realizationService.getRealization(code)
-      .subscribe({
-        next: (response) => {
-          this.realization = response;
-          this.realization.mainPhoto = response.photos.find(p => p.main)!;
-          this.images = response.photos.map((img) => ({path: img.url}))
-        },
-        error: (error) => {
-          this.error = error;
-        }
-      })
+    if(this.realizationService.realizationsPage == undefined || this.realizationService.realizationsPage == null || this.realizationService.realizationsPage.data.find(r => r.id == id) == undefined){
+      this.realizationService.getRealization(id)
+        .subscribe({
+          next: (response) => {
+            this.realization = response;
+            this.realization.mainPhoto = response.photos.find(p => p.main)!;
+            this.images = response.photos.map((img) => ({path: img.url}))
+          },
+          error: (error) => {
+            this.error = error;
+          }
+        })
     }else{
-      this.realization = this.realizationService.realizationsPage.data.find(r => r.code == code)!;
+      this.realization = this.realizationService.realizationsPage.data.find(r => r.id == id)!;
       this.images = this.realization.photos.map((img) => ({path: img.url}));
     }
-
-    console.log(this.realization);
     
   }
 

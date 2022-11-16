@@ -34,31 +34,21 @@ export class RealizationListComponent implements OnInit {
 
     window.scroll(0,0);
     
-    if(this.realizationService.realizationsPage != undefined && 
-       this.realizationService.realizationsPage != null &&
-       this.realizationService.realizationsPage.current == page)
-    {
-      this.realizations = this.realizationService.realizationsPage.data;
-      this.current = this.realizationService.realizationsPage.current;
-      this.size = this.realizationService.realizationsPage.size;
-    }
-    else
-    {
-      this.realizationService.getRealizations(page)
-      .subscribe({
-        next: (response) => {
-          response.data.forEach(r => r.mainPhoto = r.photos.find(p => p.main)!);
-          
-          this.realizations = response.data;
-          this.current = response.current;
-          this.size = response.size;
-          this.realizationService.realizationsPage = response;
-        },
-        error: (error) => {
-          this.error = error;
-        }
-      })
-    }
-    
+    this.realizationService.getRealizations(page)
+    .subscribe({
+      next: (response) => {
+        if(response.data[0] != null) response.data.forEach(r => r.mainPhoto = r.photos.find(p => p.main)!);
+
+        response.data.forEach(r => console.log(r.mainPhoto));
+        
+        this.realizations = response.data;
+        this.current = response.current;
+        this.size = response.size;
+        this.realizationService.realizationsPage = response;
+      },
+      error: (error) => {
+        this.error = error;
+      }
+    })
   }
 }

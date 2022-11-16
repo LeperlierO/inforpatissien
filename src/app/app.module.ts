@@ -7,7 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RealizationListComponent } from './realization-list/realization-list.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RealizationCardComponent } from './realization-card/realization-card.component';
 import { RealizationDetailsComponent } from './realization-details/realization-details.component';
 import { RealizationHeaderComponent } from './realization-header/realization-header.component';
@@ -22,6 +22,9 @@ import { RealizationFormComponent } from './realization-form/realization-form.co
 import { FormsModule } from '@angular/forms';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsItemComponent } from './settings-item/settings-item.component';
+import { LoginComponent } from './login/login.component';
+import { toast } from '../../node_modules/bulma-toast'
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { SettingsItemComponent } from './settings-item/settings-item.component';
     RealizationHeaderComponent,
     RealizationFormComponent,
     SettingsComponent,
-    SettingsItemComponent
+    SettingsItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,10 @@ import { SettingsItemComponent } from './settings-item/settings-item.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [HttpClient],
+  providers: [
+    HttpClient,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

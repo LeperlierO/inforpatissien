@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Token } from '../models/auth';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +10,28 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public router: Router) { 
+  token: Token | null = null;
 
+  constructor(private authService: AuthService, public router: Router) { 
   }
 
   ngOnInit(): void {
+    this.authService.tokenSubject.subscribe(
+      (token : Token | null) => {
+        this.token = token;
+      }
+    )
   }
 
   disabledScroll(){
     let body = document.querySelector("body");
     if(body != null)body.style.position = body.style.position == 'fixed' ? '' : 'fixed';
+  }
+
+  logout(){
+    this.authService.logout();
+    this.ngOnInit();
+    this.router.navigate(["/"]);
   }
 
 }

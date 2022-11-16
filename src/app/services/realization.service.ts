@@ -8,16 +8,9 @@ import { BodyRealization, MiniRealization, Realization, RealizationPagination } 
 })
 export class RealizationService {
 
-  optionRequete = {
-    headers: new HttpHeaders({ 
-      'Access-Control-Allow-Origin':'*',
-      'mon-entete-personnalise':'maValeur'
-    })
-  };
-
   public realizationsPage!: RealizationPagination;
   serverUrl = 'https://inforpatissien-api.azurewebsites.net'
-  //serverUrl = 'https://localhost:44383/';
+  // serverUrl = 'https://localhost:44383/';
   realizationPath = '/realizations'
 
   constructor(private http: HttpClient) { }
@@ -37,10 +30,10 @@ export class RealizationService {
       );
   }
 
-  getRealization(code: string): Observable<Realization>{
+  getRealization(id: number): Observable<Realization>{
     return this.http
       .get<Realization>(
-        `${this.serverUrl}${this.realizationPath}/` + code
+        `${this.serverUrl}${this.realizationPath}/` + id
       );
   }
 
@@ -52,10 +45,9 @@ export class RealizationService {
     );
   }
 
-  uploadFile(file: File, userCode: string, realizationCode: string, fileName: string):Observable<string>{
+  uploadFile(file: File, realizationCode: string, fileName: string):Observable<string>{
     const formData = new FormData(); 
     formData.append("file", file, file.name);
-    formData.append("userCode", userCode);
     formData.append("realizationCode", realizationCode);
     formData.append("fileName", fileName);
 
@@ -64,6 +56,13 @@ export class RealizationService {
         `${this.serverUrl}${this.realizationPath}/upload-image`, 
         formData
       );
+  }
+
+  deleteRealization(id: number){
+    return this.http
+    .delete(
+      `${this.serverUrl}${this.realizationPath}/` + id
+    );
   }
 
 }

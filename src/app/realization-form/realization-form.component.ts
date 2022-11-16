@@ -38,13 +38,11 @@ export class RealizationFormComponent implements OnInit {
       this.body.difficulty = this.difficulty;
       this.body.mainPhoto = '';
   
-      this.realizationService.uploadFile(this.file, "olivier", this.code, this.fileName).subscribe(
+      this.realizationService.uploadFile(this.file, this.code, this.fileName).subscribe(
         (url: string) => {
           this.body.mainPhoto = url;
           this.realizationService.createRealization(this.body).subscribe(
             (realization: Realization) => {
-              console.log("AJOUT REALISATION");
-              console.log(realization);
               this.closeEvent.emit(false);
             }
           );
@@ -57,7 +55,7 @@ export class RealizationFormComponent implements OnInit {
     const element = event.currentTarget as HTMLInputElement;
     let fileList: FileList | null = element.files;
     if (fileList) {
-      console.log("FileUpload -> files", fileList);
+      // console.log("FileUpload -> files", fileList);
       this.fileName = fileList[0].name;
       this.file = fileList[0];
     }

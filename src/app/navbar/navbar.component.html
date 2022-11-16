@@ -6,9 +6,15 @@
             <span class="line line2"></span>
             <span class="line line3"></span>
         </div>
+        <div *ngIf="token" class="is-hidden-mobile">
+            {{token.userName}}
+        </div>
         <ul class="menu-items">
             <li><a routerLink="/" [ngClass]="{'menu-items-selected': router.url=='/'}">Accueil</a></li>
             <li><a routerLink="/realisations" [ngClass]="{'menu-items-selected': router.url.startsWith('/realisations')}">Réalisations</a></li>
+            <li *ngIf="token"><a routerLink="/parametres" [ngClass]="{'menu-items-selected': router.url.startsWith('/parametres')}">Paramètres</a></li>
+            <li *ngIf="!token"><a routerLink="/connexion" [ngClass]="{'menu-items-selected': router.url.startsWith('/connexion')}">Connexion</a></li>
+            <li *ngIf="token"><a (click)="logout()">Déconnexion</a></li>
         </ul>
         <div class="logo"></div>
     </div>
