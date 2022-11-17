@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'realisations/page/:page', component: RealizationListComponent},
   {path: 'realisations/creation', component: RealizationFormComponent},
   {path: 'realisations/:id', component: RealizationDetailsComponent},
-  {path: 'parametres', component: SettingsComponent},
+  {path: 'configuration', component: SettingsComponent},
   {path: 'connexion', component: LoginComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
