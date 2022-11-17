@@ -20,7 +20,7 @@ export class BodyRealization{
     code!: string;
     name!: string;
     description!: string;
-    date!: Date;
+    date!: string;
     success!: number;
     difficulty!: number;
     time!: Time;

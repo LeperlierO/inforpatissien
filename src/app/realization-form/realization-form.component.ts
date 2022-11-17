@@ -22,7 +22,14 @@ export class RealizationFormComponent implements OnInit {
   constructor(private realizationService: RealizationService) { }
 
   ngOnInit(): void {
-    this.showSubscription = this.show.subscribe(() => this.body = new BodyRealization());
+    this.showSubscription = this.show.subscribe(() => 
+      {
+        this.body = new BodyRealization();
+        this.body.date = new Date().toISOString().slice(0, 10);
+        this.body.success = 0;
+        this.body.difficulty = 0;
+      }
+    );
   }
 
   ngOnDestroy() {
@@ -33,6 +40,8 @@ export class RealizationFormComponent implements OnInit {
     if(!this.loading){
       this.loading = true;
       this.body.mainPhoto = '';
+
+      this.fileName = this.fileName.replace(/\s/g, "_");
   
       this.realizationService.uploadFile(this.file, this.body.code, this.fileName).subscribe(
         (url: string) => {
