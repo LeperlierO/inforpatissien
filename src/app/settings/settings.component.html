@@ -20,7 +20,7 @@
       </div>
       
       <div class="list">
-        <app-settings-item *ngFor="let realization of realizations; let index = index;" [realization]="realization"></app-settings-item>
+        <app-settings-item (deleteEvent)="reloadRealizations()" *ngFor="let realization of realizations; let index = index;" [realization]="realization"></app-settings-item>
       </div>
     </div>
     

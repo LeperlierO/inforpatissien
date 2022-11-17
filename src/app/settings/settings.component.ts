@@ -50,5 +50,9 @@ export class SettingsComponent implements OnInit {
     }
   }
 
+  reloadRealizations(){
+    this.getMiniRealizations();
+  }
+
 
 }

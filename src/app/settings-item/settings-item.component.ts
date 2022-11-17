@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MiniRealization } from '../models/realization';
 import { toast } from 'bulma-toast';
 import { RealizationService } from '../services/realization.service';
@@ -10,6 +10,7 @@ import { RealizationService } from '../services/realization.service';
 })
 export class SettingsItemComponent implements OnInit {
 
+  @Output() deleteEvent = new EventEmitter<void>();
   @Input() realization!: MiniRealization;
   
   constructor(private realizationService: RealizationService) { }
@@ -22,7 +23,11 @@ export class SettingsItemComponent implements OnInit {
   }
 
   delete(){
-    this.realizationService.deleteRealization(this.realization.id).subscribe();
+    this.realizationService.deleteRealization(this.realization.id).subscribe({
+      next: () => {
+        this.deleteEvent.emit();
+      }
+    });
   }
 
 }
