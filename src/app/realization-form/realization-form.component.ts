@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { BodyRealization, Realization } from '../models/realization';
@@ -28,6 +29,8 @@ export class RealizationFormComponent implements OnInit {
         this.body.date = new Date().toISOString().slice(0, 10);
         this.body.success = 0;
         this.body.difficulty = 0;
+        this.loading = false;
+        this.fileName = "";
       }
     );
   }
@@ -44,8 +47,8 @@ export class RealizationFormComponent implements OnInit {
       this.fileName = this.fileName.replace(/\s/g, "_");
   
       this.realizationService.uploadFile(this.file, this.body.code, this.fileName).subscribe(
-        (url: string) => {
-          this.body.mainPhoto = url;
+        (response: any) => {
+          this.body.mainPhoto = response.link;
           this.realizationService.createRealization(this.body).subscribe(
             (realization: Realization) => {
               this.closeEvent.emit(false);
