@@ -37,8 +37,6 @@ export class RealizationListComponent implements OnInit {
     this.realizationService.getRealizations(page)
     .subscribe({
       next: (response) => {
-        if(response.data[0] != null) response.data.forEach(r => r.mainPhoto = r.photos.find(p => p.main)!);
-        
         this.realizations = response.data;
         this.current = response.current;
         this.size = response.size;

@@ -4,8 +4,6 @@
     background-position: 50% 50%;
 }
 
-@media (max-width: 768px) {
-    .is-parent{
-        margin-bottom: 30px!important;
-    }
+article{
+    cursor: pointer;
 }

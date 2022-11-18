@@ -59,7 +59,6 @@ export class RealizationFormComponent implements OnInit {
   }
 
   getRealizationNameError() {
-    console.log(this.name);
     return this.name.hasError('required') ? "Le nom est obligatoire" : "";
   }
 

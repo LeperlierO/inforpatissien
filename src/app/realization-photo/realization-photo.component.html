@@ -1,0 +1,10 @@
+<article class="tile is-child box" style="background-image:url({{photo.url}});" (click)="modalIsActive=true"></article>
+<div class="modal" [ngClass]="{'is-active':modalIsActive}">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <p class="image is-4by3">
+        <img src="{{photo.url}}" alt="">
+      </p>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="modalIsActive=false"></button>
+</div>

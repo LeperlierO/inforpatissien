@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { BodyRealization, MiniRealization, Realization, RealizationPagination } from '../models/realization';
 
 @Injectable({
@@ -20,7 +20,19 @@ export class RealizationService {
     return this.http
       .get<RealizationPagination>(
         `${this.serverUrl}${this.realizationPath}`, {params: params}
-      );
+      ).pipe(
+        map((response: RealizationPagination) => {
+          if(response.data[0] != null) response.data.forEach(r => {
+            const mainPhoto = r.photos.find(p => p.main)!;
+  
+            if(mainPhoto != null){
+              r.mainPhoto = mainPhoto;
+              r.photos.splice(r.photos.indexOf(mainPhoto),1);
+            }
+          });
+
+          return response;
+      }));
   }
 
   getMiniRealizations(): Observable<MiniRealization[]>{
@@ -34,7 +46,17 @@ export class RealizationService {
     return this.http
       .get<Realization>(
         `${this.serverUrl}${this.realizationPath}/` + id
-      );
+      ).pipe(
+        map((response: Realization) => {
+          const mainPhoto = response.photos.find(p => p.main)!;
+  
+          if(mainPhoto != null){
+            response.mainPhoto = mainPhoto;
+            response.photos.splice(response.photos.indexOf(mainPhoto),1);
+          }
+
+          return response;
+      }));
   }
 
   createRealization(body: BodyRealization):Observable<Realization>{

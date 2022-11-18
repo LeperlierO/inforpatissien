@@ -39,7 +39,6 @@ export class MiniRealization
 export class RealizationPhoto
 {
     id!: number;
-    code!: string;
     name!: string;
     description!: string;
     url!: string;

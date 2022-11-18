@@ -25,6 +25,7 @@ import { SettingsItemComponent } from './settings-item/settings-item.component';
 import { LoginComponent } from './login/login.component';
 import { toast } from '../../node_modules/bulma-toast'
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { RealizationPhotoComponent } from './realization-photo/realization-photo.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     RealizationFormComponent,
     SettingsComponent,
     SettingsItemComponent,
-    LoginComponent
+    LoginComponent,
+    RealizationPhotoComponent
   ],
   imports: [
     BrowserModule,
