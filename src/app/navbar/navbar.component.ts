@@ -25,7 +25,10 @@ export class NavbarComponent implements OnInit {
 
   disabledScroll(){
     let body = document.querySelector("body");
-    if(body != null)body.style.position = body.style.position == 'fixed' ? '' : 'fixed';
+    if(body != null){
+      body.style.position = body.style.position == 'fixed' ? '' : 'fixed';
+      body.style.width = "100%";
+    }
   }
 
   logout(){
