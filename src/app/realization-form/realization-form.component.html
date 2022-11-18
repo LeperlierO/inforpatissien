@@ -5,7 +5,7 @@
     <button class="delete" aria-label="close" (click)="closeModal()"></button>
   </header>
   <section class="modal-card-body">
-    <section class="section is-small" style="padding-top:0px;">
+    <section class="section is-small" style="padding-top:0px; padding-bottom: 0px;">
       <form [formGroup]="realizationForm" (ngSubmit)="onSubmitForm()">
         <div class="container is-max-desktop is-centered">
 
@@ -14,19 +14,19 @@
               <div class="field">
                 <label class="label">Nom</label>
                 <div class="control">
-                  <input class="input" [ngClass]="{'is-danger': name.invalid}" type="text"
+                  <input class="input" [ngClass]="{'is-danger': name.invalid && name.touched}" type="text"
                     placeholder="Nom" [formControl]="name" formControlName="name" required>
                 </div>
-                <p class="help is-exclamation-triange" *ngIf="name.invalid">{{getRealizationNameError()}}</p>
+                <p class="help is-exclamation-triange" *ngIf="name.invalid && name.touched">{{getRealizationNameError()}}</p>
               </div>
 
               <div class="field">
                 <label class="label">Code</label>
                 <div class="control">
-                  <input class="input" [ngClass]="{'is-danger': code.invalid}" type="text"
+                  <input class="input" [ngClass]="{'is-danger': code.invalid && code.touched}" type="text"
                     placeholder="Code" [formControl]="code" formControlName="code">
                 </div>
-                <p class="help is-exclamation-triange" *ngIf="code.invalid">{{getRealizationCodeError()}}</p>
+                <p class="help is-exclamation-triange" *ngIf="code.invalid && code.touched">{{getRealizationCodeError()}}</p>
               </div>
             </div>
           </div>
@@ -44,6 +44,7 @@
             <div class="control">
               <input class="input" [ngClass]="{'is-danger': date.invalid}" type="date" value="11-02-2018" [formControl]="date" formControlName="date">
             </div>
+            <p class="help is-exclamation-triange" *ngIf="date.invalid && date.touched">{{getRealizationDateError()}}</p>
           </div>
 
 
@@ -78,15 +79,15 @@
 
           <div class="field">
             <label class="label">Photo principale</label>
-            <div class="file has-name">
+            <div class="file has-name" [ngClass]="{'is-danger': fileName.invalid}">
               <label class="control file-label">
-                <input class="file-input" [ngClass]="{'is-danger': fileName.invalid}" type="file" name="resume" (change)="uploadFile($event)">
+                <input class="file-input" type="file" name="resume" (change)="uploadFile($event)">
                 <span class="file-cta">
                   <span class="file-icon">
                     <i class="fas fa-upload"></i>
                   </span>
                   <span class="file-label">
-                    Choose a file…
+                    Choisir un fichier
                   </span>
                 </span>
                 <span class="file-name">

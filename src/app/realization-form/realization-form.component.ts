@@ -1,6 +1,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { toast } from 'bulma-toast';
 import { Observable, Subscription } from 'rxjs';
 import { BodyRealization, Realization } from '../models/realization';
 import { RealizationService } from '../services/realization.service';
@@ -58,6 +59,7 @@ export class RealizationFormComponent implements OnInit {
   }
 
   getRealizationNameError() {
+    console.log(this.name);
     return this.name.hasError('required') ? "Le nom est obligatoire" : "";
   }
 
@@ -70,7 +72,7 @@ export class RealizationFormComponent implements OnInit {
   }
 
   getRealizationFileError() {
-    return this.code.hasError('required') ? "Le fichier est obligatoire" : "";
+    return this.fileName.hasError('required') ? "Le fichier est obligatoire" : "";
   }
 
   onSubmitForm(){
@@ -106,9 +108,21 @@ export class RealizationFormComponent implements OnInit {
     const element = event.currentTarget as HTMLInputElement;
     let fileList: FileList | null = element.files;
     if (fileList) {
-      // console.log("FileUpload -> files", fileList);
-      this.fileName.setValue(fileList[0].name);
-      this.file = fileList[0];
+      let errorMessage = "";
+
+      if(fileList[0].type != "image/jpeg" && fileList[0].type != "image/png") {
+        errorMessage = "Le fichier doit être une image de type jpeg ou png";
+      }else if(fileList[0].size > 800000 ){
+        errorMessage = "Le taille du fichier ne doit pas excéder 800 Ko";
+      }
+
+      if(errorMessage == ""){
+        this.fileName.setValue(fileList[0].name);
+        this.file = fileList[0];
+      }else{
+        toast({ message: errorMessage, type: 'is-danger', position:'top-center' });
+        this.fileName.setValue("");
+      }
     }
   }
 
