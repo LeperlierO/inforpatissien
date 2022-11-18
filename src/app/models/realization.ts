@@ -16,7 +16,6 @@ export class Realization
 }
 
 export class BodyRealization{
-    id!: number;
     code!: string;
     name!: string;
     description!: string;

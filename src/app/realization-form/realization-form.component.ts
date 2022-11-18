@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 import { BodyRealization, Realization } from '../models/realization';
 import { RealizationService } from '../services/realization.service';
@@ -11,26 +12,31 @@ import { RealizationService } from '../services/realization.service';
 })
 export class RealizationFormComponent implements OnInit {
 
-  @Output() closeEvent = new EventEmitter<boolean>();
-  private showSubscription: Subscription = new Subscription();
-  @Input() show!: Observable<void>;
+  @Output() closeEvent = new EventEmitter<boolean>(); // Permet de mettre à jour la liste des réalisations quand la modal est fermée : event envoyé au parent
+  
+  private showSubscription: Subscription = new Subscription(); 
+  @Input() show!: Observable<void>; // Permet de savoir quand la modal est ouverte alors il faut ré initialiser les champs du form
 
-  body: BodyRealization = new BodyRealization();
-  fileName = '';
+  // Permet de gérer les erreurs de champs obligatoires
+  realizationForm: FormGroup | any;
+  name = new FormControl('', [Validators.required]);
+  code = new FormControl('', [Validators.required]);
+  description = new FormControl('',); 
+  date = new FormControl(new Date().toISOString().slice(0, 10), [Validators.required]);
+  success = new FormControl('1', [Validators.required]);
+  difficulty = new FormControl('0', [Validators.required]);
+  fileName = new FormControl('', [Validators.required]);
+
   file!: File;
   loading: boolean = false;
 
-  constructor(private realizationService: RealizationService) { }
+  constructor(private realizationService: RealizationService, private formBuilder: FormBuilder) { this.initForm(); }
 
   ngOnInit(): void {
     this.showSubscription = this.show.subscribe(() => 
       {
-        this.body = new BodyRealization();
-        this.body.date = new Date().toISOString().slice(0, 10);
-        this.body.success = 0;
-        this.body.difficulty = 0;
+        this.initForm();
         this.loading = false;
-        this.fileName = "";
       }
     );
   }
@@ -39,17 +45,54 @@ export class RealizationFormComponent implements OnInit {
     this.showSubscription.unsubscribe();
   }
 
-  addRealization(){
+  initForm(){
+    this.realizationForm = this.formBuilder.group({
+      name: this.name,
+      code : this.code,
+      description : this.description,
+      date : this.date,
+      success : this.success,
+      difficulty : this.difficulty,
+      fileName : this.fileName
+    })
+  }
+
+  getRealizationNameError() {
+    return this.name.hasError('required') ? "Le nom est obligatoire" : "";
+  }
+
+  getRealizationCodeError() {
+    return this.code.hasError('required') ? "Le code est obligatoire" : "";
+  }
+
+  getRealizationDateError() {
+    return this.date.hasError('required') ? "La date est obligatoire" : "";
+  }
+
+  getRealizationFileError() {
+    return this.code.hasError('required') ? "Le fichier est obligatoire" : "";
+  }
+
+  onSubmitForm(){
     if(!this.loading){
       this.loading = true;
-      this.body.mainPhoto = '';
 
-      this.fileName = this.fileName.replace(/\s/g, "_");
+      const formValue = this.realizationForm?.value;
+      const realization = new BodyRealization();
+      const image = formValue['fileName'].replace(/\s/g, "_");
+
+      realization.name = formValue['name'];
+      realization.code = formValue['code'];
+      realization.description = formValue['description'];
+      realization.date = formValue['date'];
+      realization.success = formValue['success'];
+      realization.difficulty = formValue['difficulty'];
+      realization.mainPhoto = '';
   
-      this.realizationService.uploadFile(this.file, this.body.code, this.fileName).subscribe(
+      this.realizationService.uploadFile(this.file, realization.code, image).subscribe(
         (response: any) => {
-          this.body.mainPhoto = response.link;
-          this.realizationService.createRealization(this.body).subscribe(
+          realization.mainPhoto = response.link;
+          this.realizationService.createRealization(realization).subscribe(
             (realization: Realization) => {
               this.closeEvent.emit(false);
             }
@@ -64,7 +107,7 @@ export class RealizationFormComponent implements OnInit {
     let fileList: FileList | null = element.files;
     if (fileList) {
       // console.log("FileUpload -> files", fileList);
-      this.fileName = fileList[0].name;
+      this.fileName.setValue(fileList[0].name);
       this.file = fileList[0];
     }
   }

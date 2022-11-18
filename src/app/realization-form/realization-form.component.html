@@ -6,94 +6,103 @@
   </header>
   <section class="modal-card-body">
     <section class="section is-small" style="padding-top:0px;">
+      <form [formGroup]="realizationForm" (ngSubmit)="onSubmitForm()">
         <div class="container is-max-desktop is-centered">
-    
-            <div class="field is-horizontal">
-                <div class="field-body">
-                    <div class="field">
-                        <label class="label">Nom</label>
-                        <div class="control">
-                        <input class="input" type="text" placeholder="Nom" [(ngModel)]="body.name">
-                        </div>
-                    </div>
-            
-                    <div class="field">
-                        <label class="label">Code</label>
-                        <div class="control">
-                        <input class="input" type="text" placeholder="Code" [(ngModel)]="body.code">
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="field">
-                <label class="label">Description</label>
+
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field">
+                <label class="label">Nom</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Ingrédients principaux, goûts" [(ngModel)]="body.description">
+                  <input class="input" [ngClass]="{'is-danger': name.invalid}" type="text"
+                    placeholder="Nom" [formControl]="name" formControlName="name" required>
                 </div>
-            </div>
-    
-            <div class="field">
-                <label class="label">Date</label>
+                <p class="help is-exclamation-triange" *ngIf="name.invalid">{{getRealizationNameError()}}</p>
+              </div>
+
+              <div class="field">
+                <label class="label">Code</label>
                 <div class="control">
-                    <input id="datepickerDemo" class="input" type="date" value="11-02-2018" [(ngModel)]="body.date">
+                  <input class="input" [ngClass]="{'is-danger': code.invalid}" type="text"
+                    placeholder="Code" [formControl]="code" formControlName="code">
                 </div>
+                <p class="help is-exclamation-triange" *ngIf="code.invalid">{{getRealizationCodeError()}}</p>
+              </div>
             </div>
-    
-            
-            <div class="field is-horizontal">
-                <div class="field-body">
-                    <div class="field">
-                        <label class="label">Réussite</label>
-                        <div class="control">
-                            <div class="select">
-                            <select [(ngModel)]="body.success" style="width : 100%;">
-                                <option value=0>Flop</option>
-                                <option value=1>Top</option>
-                            </select>
-                            </div>
-                        </div>
-                    </div>
-                        
-                    <div class="field">
-                        <label class="label">Difficulté</label>
-                        <div class="control">
-                            <div class="select">
-                            <select [(ngModel)]="body.difficulty">
-                                <option value=0>Facile</option>
-                                <option value=1>Moyen</option>
-                                <option value=2>Difficile</option>
-                            </select>
-                            </div>
-                        </div>
-                    </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Ingrédients principaux, goûts" [formControl]="description"
+                formControlName="description">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Date</label>
+            <div class="control">
+              <input class="input" [ngClass]="{'is-danger': date.invalid}" type="date" value="11-02-2018" [formControl]="date" formControlName="date">
+            </div>
+          </div>
+
+
+          <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field">
+                <label class="label">Réussite</label>
+                <div class="control">
+                  <div class="select">
+                    <select [formControl]="success" formControlName="success">
+                      <option value=0>Flop</option>
+                      <option value=1>Top</option>
+                    </select>
+                  </div>
                 </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Difficulté</label>
+                <div class="control">
+                  <div class="select">
+                    <select [formControl]="difficulty" formControlName="difficulty">
+                      <option value=0>Facile</option>
+                      <option value=1>Moyen</option>
+                      <option value=2>Difficile</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
-    
+          </div>
+
+          <div class="field">
             <label class="label">Photo principale</label>
-            <div class="field file has-name is-boxed">
-                <label class="file-label">
-                  <input class="file-input" type="file" name="resume" (change)="uploadFile($event)">
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label">
-                      Choose a file…
-                    </span>
+            <div class="file has-name">
+              <label class="control file-label">
+                <input class="file-input" [ngClass]="{'is-danger': fileName.invalid}" type="file" name="resume" (change)="uploadFile($event)">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
                   </span>
-                  <span class="file-name">
-                    {{fileName}}
+                  <span class="file-label">
+                    Choose a file…
                   </span>
-                </label>
+                </span>
+                <span class="file-name">
+                  {{fileName.value}}
+                </span>
+              </label>
             </div>
-                
+            <p class="help is-exclamation-triange" *ngIf="fileName.invalid">{{getRealizationFileError()}}</p>
+          </div>
+
+          <div class="field">
+            <button class="button is-primary" type="submit" [disabled]="realizationForm.invalid"
+              [ngClass]="{'is-loading':loading}">Enregistrer</button>
+          </div>
         </div>
+      </form>
     </section>
   </section>
-  <footer class="modal-card-foot">
-    <button class="button is-primary" (click)="addRealization()" [ngClass]="{'is-loading':loading}">Enregistrer</button>
-    <button class="button" (click)="closeModal()">Annuler</button>
-  </footer>
-
 </div>

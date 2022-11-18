@@ -19,7 +19,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat'
 import { } from '@angular/fire/database';
 import { RealizationFormComponent } from './realization-form/realization-form.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsItemComponent } from './settings-item/settings-item.component';
 import { LoginComponent } from './login/login.component';
@@ -48,6 +48,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     IvyCarouselModule,
     AngularFireModule,
     FormsModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
