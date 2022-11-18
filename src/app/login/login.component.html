@@ -5,11 +5,11 @@
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
             <h3 class="title has-text-centered">Connexion</h3>
             <hr class="login-hr">
-            <form action="" class="box">
+            <form class="box" [formGroup]="loginForm" (ngSubmit)="login()">
               <div class="field">
                 <label for="" class="label">E-mail</label>
                 <div class="control has-icons-left">
-                  <input type="email" placeholder="abc@example.com" class="input" [(ngModel)]="body.email" name="email" required>
+                  <input type="email" placeholder="abc@example.com" class="input" [formControl]="email" formControlName="email" required>
                   <span class="icon is-small is-left">
                     <i class="fa fa-envelope"></i>
                   </span>
@@ -18,7 +18,7 @@
               <div class="field">
                 <label for="" class="label">Mot de passe</label>
                 <div class="control has-icons-left">
-                  <input type="password" placeholder="*******" class="input" [(ngModel)]="body.password" name="password" required>
+                  <input type="password" placeholder="******" class="input" [formControl]="password" formControlName="password" required>
                   <span class="icon is-small is-left">
                     <i class="fa fa-lock"></i>
                   </span>
@@ -31,7 +31,7 @@
                 </label>
               </div>-->
               <div class="field">
-                <button class="button is-primary" (click)="tryLogin()">
+                <button class="button is-primary" type="submit" [disabled]="loginForm.invalid">
                   Connexion
                 </button>
               </div>
