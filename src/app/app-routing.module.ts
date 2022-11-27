@@ -6,6 +6,7 @@ import { RealizationDetailsComponent } from './realization-details/realization-d
 import { RealizationFormComponent } from './realization-form/realization-form.component';
 import { RealizationListComponent } from './realization-list/realization-list.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'realisations/page/:page', component: RealizationListComponent},
   {path: 'realisations/creation', component: RealizationFormComponent},
   {path: 'realisations/:id', component: RealizationDetailsComponent},
+  {path: 'recettes', component: RecipeListComponent},
   {path: 'recettes/:id', component: RecipeDetailsComponent},
   {path: 'configuration', component: SettingsComponent},
   {path: 'connexion', component: LoginComponent},

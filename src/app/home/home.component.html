@@ -9,10 +9,50 @@
               Site en cours de construction
             </div>
           </article>
-        <!--<figure class="image is-inline-block" style="height: 100%; width: 100%px;">
-          <img src="../../assets/images/home.png"/>
-        </figure>-->
     </div>
 </section>
+
+<div id="modal" class="modal" [ngClass]="{'is-active':modalIsActive && modalIsActive}">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <img src="../../assets/images/inforpatissien.png" class="is-rounded" alt="Image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>L'inforpatissien</strong> <small>@junior</small>
+              <br>
+              Bonjour à tous les trois et tout d'abord, bravo d'avoir trouvé la recette mystère.
+              <br>
+              Durant cette année 2022 vous avez pu bien profiter des différentes réalisations vu précédemment mais maintenant, c'est à votre tour de pâtisser, ou plus précisement, d'<strong>inforpatisser</strong>.
+              <br><br>
+              Rendez-vous dans la page des recettes pour y trouver la recette qui va vous permettre de devenir un vrai inforpatissien ! <br> Mais attention, seul le plus rapide rentrera dans la brigade ...
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" aria-label="retweet">
+                <span class="icon is-small">
+                  <i class="fas fa-retweet" aria-hidden="true"></i>
+                </span>
+              </a>
+              <a class="level-item" aria-label="like">
+                <span class="icon is-small">
+                  <i class="fas fa-heart" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close" (click)="displayModal(false)"></button>
+</div>
 
 

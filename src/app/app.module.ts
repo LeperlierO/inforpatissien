@@ -30,6 +30,8 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { RecipeStepComponent } from './recipe-step/recipe-step.component';
 import { StepPipe } from './pipes/step.pipe';
 import { RecipeChronologyComponent } from './recipe-chronology/recipe-chronology.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { RecipeChronologyComponent } from './recipe-chronology/recipe-chronology
     RecipeDetailsComponent,
     RecipeStepComponent,
     StepPipe,
-    RecipeChronologyComponent
+    RecipeChronologyComponent,
+    RecipeListComponent,
+    RecipeListItemComponent
   ],
   imports: [
     BrowserModule,

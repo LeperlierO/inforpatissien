@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { toast } from 'bulma-toast';
 import { Observable, Subscription } from 'rxjs';
+import { BodyId } from '../models/common';
 import { BodyRealization, Realization } from '../models/realization';
 import { RealizationService } from '../services/realization.service';
 
@@ -86,7 +87,8 @@ export class RealizationFormComponent implements OnInit {
       realization.code = formValue['code'];
       realization.description = formValue['description'];
       realization.date = formValue['date'];
-      realization.success = formValue['success'];
+      realization.success = new BodyId();
+      realization.success.id = formValue['success'];
       realization.mainPhoto = '';
   
       this.realizationService.uploadFile(this.file, realization.code, image).subscribe(

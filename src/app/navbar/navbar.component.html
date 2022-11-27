@@ -12,7 +12,8 @@
         <ul class="menu-items">
             <li><a routerLink="/" [ngClass]="{'menu-items-selected': router.url=='/'}">Accueil</a></li>
             <li><a routerLink="/realisations" [ngClass]="{'menu-items-selected': router.url.startsWith('/realisations')}">Réalisations</a></li>
-            <li *ngIf="token"><a routerLink="/configuration" [ngClass]="{'menu-items-selected': router.url.startsWith('/configuration')}">Configuration</a></li>
+            <li *ngIf="token && token.gamer"><a routerLink="/recettes" [ngClass]="{'menu-items-selected': router.url.startsWith('/recettes')}">Recettes</a></li>
+            <li *ngIf="token && !token.gamer"><a routerLink="/configuration" [ngClass]="{'menu-items-selected': router.url.startsWith('/configuration')}">Configuration</a></li>
             <li *ngIf="!token"><a routerLink="/connexion" [ngClass]="{'menu-items-selected': router.url.startsWith('/connexion')}">Connexion</a></li>
             <li *ngIf="token"><a (click)="logout()">Déconnexion</a></li>
         </ul>

@@ -7,4 +7,5 @@ export class BodyLogin
 export class Token{
     token!: string;
     userName!: string;
+    gamer!: Boolean;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Token } from '../models/auth';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  modalIsActive: Boolean = false;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
+    this.authService.tokenSubject.subscribe(
+      (token : Token | null) => {
+        if(token != null) this.modalIsActive = token.gamer;
+      }
+    )
+  }
+
+  displayModal(active: boolean){
+    this.modalIsActive = active;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Step } from '../models/recipe';
 
 @Component({
@@ -8,11 +8,19 @@ import { Step } from '../models/recipe';
 })
 export class RecipeChronologyComponent implements OnInit {
 
+  checked: Boolean = false;
+  @Output() checkEvent = new EventEmitter<boolean>();
+
   @Input() step!: Step;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  check(){
+    this.checked = !this.checked;
+    this.checkEvent.emit(this.checked as boolean);
   }
 
 }

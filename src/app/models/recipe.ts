@@ -13,6 +13,14 @@ export class Recipe
     equipments!: Equipment[]
 }
 
+export class MiniRecipe
+{
+    id!: number;
+    code!: string;
+    name!: string;
+    difficulty!: Setting;
+}
+
 export class Step
 {
     id!: number;
@@ -30,6 +38,8 @@ export class Ingredient
 {
     id!: number;
     name!: string;
+    quantity!: number;
+    unit!: string;
 }
 
 export class Equipment

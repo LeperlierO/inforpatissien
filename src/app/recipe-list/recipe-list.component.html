@@ -1,0 +1,22 @@
+<div class="container is-max-widescreen section">
+    <article class="panel is-primary">
+        <p class="panel-heading">
+          Livre des recettes
+        </p>
+        <p class="panel-tabs">
+          <a (click)="filterRecipes(0,null)" [ngClass]="{'is-active':currentDifficulty==0}">Tous les niveaux</a>
+          <a (click)="filterRecipes(1,null)" [ngClass]="{'is-active':currentDifficulty==1}">Facile</a>
+          <a (click)="filterRecipes(2,null)" [ngClass]="{'is-active':currentDifficulty==2}">Moyen</a>
+          <a (click)="filterRecipes(3,null)" [ngClass]="{'is-active':currentDifficulty==3}">Difficile</a>
+        </p>
+        <div class="panel-block">
+          <p class="control has-icons-left">
+            <input class="input is-primary" type="text" placeholder="Rechercher" [ngModel]="currentSearch" (ngModelChange)="filterRecipes(null,$event)">
+            <span class="icon is-left">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
+          </p>
+        </div>
+        <app-recipe-list-item *ngFor="let recipe of filteredRecipes" [recipe]="recipe"></app-recipe-list-item>
+      </article>
+</div>

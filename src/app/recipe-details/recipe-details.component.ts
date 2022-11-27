@@ -10,6 +10,8 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class RecipeDetailsComponent implements OnInit {
 
+  modalIsActive: Boolean = true;
+  currentCheck = 0;
   recipe!: Recipe;
   error = '';
 
@@ -34,6 +36,17 @@ export class RecipeDetailsComponent implements OnInit {
         this.error = error;
       }
     })
+  }
+
+  checkedItems(check: boolean){
+    if(check) this.currentCheck += 1
+    else this.currentCheck -= 1;
+
+    console.log('Current : ' + this.currentCheck + ' | Total : ' + this.recipe.steps.length);
+  }
+
+  displayModal(active: boolean){
+    this.modalIsActive = active;
   }
 
 }
