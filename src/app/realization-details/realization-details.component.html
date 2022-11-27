@@ -12,16 +12,7 @@
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Résultat</p>
-            <span class="tag is-success is-medium" *ngIf="realization.success==1">Top</span>
-            <span class="tag is-danger is-medium" *ngIf="realization.success==0">Flop</span>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Difficulté</p>
-            <span class="tag is-success is-medium" *ngIf="realization.difficulty==0">Facile</span>
-            <span class="tag is-warning is-medium" *ngIf="realization.difficulty==1">Moyen</span>
-            <span class="tag is-danger is-medium" *ngIf="realization.difficulty==2">Difficile</span>
+            <span class="tag is-medium" style="background-color:{{realization.success.color}}; color:white;">{{realization.success.name}}</span>
           </div>
         </div>
         <div class="level-item has-text-centered">

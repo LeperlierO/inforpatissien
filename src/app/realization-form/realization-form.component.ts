@@ -87,7 +87,6 @@ export class RealizationFormComponent implements OnInit {
       realization.description = formValue['description'];
       realization.date = formValue['date'];
       realization.success = formValue['success'];
-      realization.difficulty = formValue['difficulty'];
       realization.mainPhoto = '';
   
       this.realizationService.uploadFile(this.file, realization.code, image).subscribe(

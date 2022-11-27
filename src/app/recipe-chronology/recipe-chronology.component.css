@@ -1,0 +1,40 @@
+.icon{
+    margin-bottom: 10px;
+}
+
+.timeline-marker{
+    top: 50% !important;
+}
+
+.timeline-content{
+    padding: 0 2em 0 2em !important;
+    top: 50% !important;
+}
+
+.timeline-item{
+    padding-bottom: 40px !important;
+    padding-top: 40px !important;
+}
+
+.timeline-item-left{
+    align-self: flex-start !important;
+    flex-direction: row-reverse !important;
+    margin-left: 0 !important;
+    margin-right: 2em !important;
+}
+
+.timeline-item-left::before{
+    right: -0.5px !important;
+    left: auto !important;
+}
+
+.timeline-marker-left{
+    transform: translateX(45%) !important;
+}
+
+.timeline-content-left{
+    text-align: right !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-basis: 100% !important;
+}

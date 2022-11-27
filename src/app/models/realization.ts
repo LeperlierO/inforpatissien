@@ -1,4 +1,6 @@
 import { Time } from "@angular/common";
+import { BodyId, Setting } from "./common";
+import { Photo } from "./photo";
 
 export class Realization
 {
@@ -7,12 +9,11 @@ export class Realization
     name!: string;
     description!: string;
     date!: Date;
-    success!: number;
-    difficulty!: number;
+    success!: Setting;
     time!: Time;
     cost!: number
-    photos!: RealizationPhoto[];
-    mainPhoto!: RealizationPhoto;
+    photos!: Photo[];
+    mainPhoto!: Photo;
 }
 
 export class BodyRealization{
@@ -20,8 +21,7 @@ export class BodyRealization{
     name!: string;
     description!: string;
     date!: string;
-    success!: number;
-    difficulty!: number;
+    success!: BodyId;
     time!: Time;
     cost!: number
     mainPhoto!: string;
@@ -33,23 +33,7 @@ export class MiniRealization
     code!: string;
     name!: string;
     description!: string;
-    mainPhoto!: RealizationPhoto;
-}
-
-export class RealizationPhoto
-{
-    id!: number;
-    name!: string;
-    description!: string;
-    url!: string;
-    main!: boolean;
-    position!: RealizationPhotoPosition;
-}
-
-export class RealizationPhotoPosition
-{
-    vertically!: number;
-    horizontally!: number;
+    mainPhoto!: Photo;
 }
 
 export class RealizationPagination

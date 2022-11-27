@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from '../models/environment ';
 import { BodyRealization, MiniRealization, Realization, RealizationPagination } from '../models/realization';
 
 @Injectable({
@@ -9,8 +10,6 @@ import { BodyRealization, MiniRealization, Realization, RealizationPagination } 
 export class RealizationService {
 
   public realizationsPage!: RealizationPagination;
-  serverUrl = 'https://inforpatissien-api.azurewebsites.net'
-  // serverUrl = 'https://localhost:44383/';
   realizationPath = '/realizations'
 
   constructor(private http: HttpClient) { }
@@ -19,7 +18,7 @@ export class RealizationService {
     let params = new HttpParams().set('page', page);
     return this.http
       .get<RealizationPagination>(
-        `${this.serverUrl}${this.realizationPath}`, {params: params}
+        `${environment.apiURL}${this.realizationPath}`, {params: params}
       ).pipe(
         map((response: RealizationPagination) => {
           if(response.data[0] != null) response.data.forEach(r => {
@@ -38,14 +37,14 @@ export class RealizationService {
   getMiniRealizations(): Observable<MiniRealization[]>{
     return this.http
       .get<MiniRealization[]>(
-        `${this.serverUrl}${this.realizationPath}-mini`
+        `${environment.apiURL}${this.realizationPath}-mini`
       );
   }
 
   getRealization(id: number): Observable<Realization>{
     return this.http
       .get<Realization>(
-        `${this.serverUrl}${this.realizationPath}/` + id
+        `${environment.apiURL}${this.realizationPath}/` + id
       ).pipe(
         map((response: Realization) => {
           const mainPhoto = response.photos.find(p => p.main)!;
@@ -62,7 +61,7 @@ export class RealizationService {
   createRealization(body: BodyRealization):Observable<Realization>{
     return this.http
     .put<Realization>(
-      `${this.serverUrl}${this.realizationPath}`,
+      `${environment.apiURL}${this.realizationPath}`,
       body
     );
   }
@@ -75,7 +74,7 @@ export class RealizationService {
 
     return this.http
       .post<string>(
-        `${this.serverUrl}${this.realizationPath}/upload-image`, 
+        `${environment.apiURL}${this.realizationPath}/upload-image`, 
         formData
       );
   }
@@ -83,7 +82,7 @@ export class RealizationService {
   deleteRealization(id: number){
     return this.http
     .delete(
-      `${this.serverUrl}${this.realizationPath}/` + id
+      `${environment.apiURL}${this.realizationPath}/` + id
     );
   }
 

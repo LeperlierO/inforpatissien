@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { BodyLogin, Token } from '../models/auth';
+import { environment } from '../models/environment ';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,6 @@ import { BodyLogin, Token } from '../models/auth';
 export class AuthService {
 
   localStorageKey = 'ifp-user';
-  serverUrl = 'https://inforpatissien-api.azurewebsites.net';
 
   public tokenSubject: BehaviorSubject<Token | null>;
 
@@ -33,7 +33,7 @@ export class AuthService {
   login(body: BodyLogin):Observable<Token>{
     return this.http
     .post<Token>(
-      `${this.serverUrl}/login`,
+      `${environment.apiURL}/login`,
       body
     ).pipe(
       map((token: Token) => {

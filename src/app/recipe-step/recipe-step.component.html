@@ -1,0 +1,11 @@
+<div class="columns is-flex is-vcentered" [style.margin-top.px]='margin'>
+    <div class="column is-11">
+        <article class="message">
+            <div class="message-body" style="height: 200px!important; overflow: hidden">
+                <h2 class="subtitle" style="margin-bottom: 5px;">Étape {{step.order}}</h2>
+                {{step.description}}
+            </div>
+        </article>
+    </div>
+    <div class="column is-1"><i class="fas fa-shopping-basket icon is-medium" *ngIf="step.ingredients != null"></i><i class="fas fa-utensils icon is-medium" *ngIf="step.equipments != null"></i><i class="fas fa-image icon is-medium"  *ngIf="false"></i></div>
+</div>

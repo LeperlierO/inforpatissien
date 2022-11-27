@@ -1,0 +1,8 @@
+<div class="timeline-item is-primary" [ngClass]="{'timeline-item-left': step.order%2!=0}">
+    <div class="timeline-marker is-primary" [ngClass]="{'timeline-marker-left': step.order%2!=0}"></div>
+    <div class="timeline-content" [ngClass]="{' timeline-content-left': step.order%2!=0}">
+        <p class="heading">Étape {{step.order}}</p>
+        <p>{{step.name}}</p>
+    </div>
+</div>
+

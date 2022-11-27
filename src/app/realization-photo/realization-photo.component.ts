@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RealizationPhoto } from '../models/realization';
+import { Photo } from '../models/photo';
 
 @Component({
   selector: 'app-realization-photo',
@@ -8,7 +8,7 @@ import { RealizationPhoto } from '../models/realization';
 })
 export class RealizationPhotoComponent implements OnInit {
 
-  @Input() photo!: RealizationPhoto;
+  @Input() photo!: Photo;
   modalIsActive: Boolean = false;
 
   constructor() { }
