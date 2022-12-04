@@ -1,0 +1,27 @@
+<div class="modal-background"></div>
+<div class="modal-content">
+  <div class="box">
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <div class="notification reduce-notification has-text-centered is-info">
+            {{step.name}}
+          </div>
+          <div class="columns">
+            <div class="column">{{step.description}}</div>
+            <div class="is-divider-vertical"></div>
+            <div class="column">
+              <div class="tags are-medium">
+                <span class="tag is-rounded" style="cursor:pointer" [ngClass]="{'is-primary':selectedIngredients.includes(ingredient)}" *ngFor="let ingredient of recipeIngredients;" (click)="clickIngredient(ingredient)">{{ingredient.name}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="field has-text-right">
+            <button class="button is-primary" (click)="validationIngredients()" [disabled]="step.success">Valider</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<button class="modal-close is-large" aria-label="close" (click)="closeModal()"></button>

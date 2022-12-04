@@ -1,28 +1,28 @@
 
 
-<section class="section is-small">
+<section class="section is-small" *ngIf="recipe !== undefined && recipe !== null">
     <div class="columns">
         <div class="column is-one-third">
-            <app-recipe-step *ngFor="let s of recipe.steps | step : false" [step]="s"></app-recipe-step>
+            <app-recipe-step *ngFor="let s of recipe.steps | step : false" [step]="s" [recipeIngredients]="recipe.ingredients"></app-recipe-step>
         </div>
         <div class="column is-hidden-mobile">
             <div class="timeline is-centered">
                 <header class="timeline-header">
                     <span class="tag is-medium is-primary">Début</span>
                 </header>
-                <app-recipe-chronology class="timeline is-centered step" *ngFor="let s of recipe.steps" [step]="s" (checkEvent)="checkedItems($event)"></app-recipe-chronology>
+                <app-recipe-chronology class="timeline is-centered step" *ngFor="let s of recipe.steps" [step]="s" (successEvent)="successItems($event)"></app-recipe-chronology>
                 <header class="timeline-header">
                     <span class="tag is-medium is-primary">Fin</span>
                 </header>
             </div>
         </div>
         <div class="column is-one-third">
-            <app-recipe-step *ngFor="let s of recipe.steps | step : true" [step]="s"></app-recipe-step>
+            <app-recipe-step *ngFor="let s of recipe.steps | step : true" [step]="s" [recipeIngredients]="recipe.ingredients"></app-recipe-step>
         </div>
     </div>
 </section>
 
-<div id="modal" class="modal" [ngClass]="{'is-active':currentCheck==recipe.steps.length && modalIsActive}">
+<div id="modal" class="modal" *ngIf="recipe !== undefined && recipe !== null" [ngClass]="{'is-active':currentCheck==recipe.steps.length && displayCongrats}">
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
@@ -58,5 +58,5 @@
         </article>
       </div>
     </div>
-    <button class="modal-close is-large" aria-label="close" (click)="displayModal(false)"></button>
+    <button class="modal-close is-large" aria-label="close" (click)="displayModalCongrats(false)"></button>
   </div>

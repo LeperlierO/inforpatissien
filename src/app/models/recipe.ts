@@ -32,6 +32,7 @@ export class Step
     ingredients!: Ingredient[];
     equipments!: Equipment[];
     order!: number;
+    success!: Boolean;
 }
 
 export class Ingredient

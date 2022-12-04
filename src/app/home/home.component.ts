@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.playSound();
     window.scroll(0,0);
     this.authService.tokenSubject.subscribe(
       (token : Token | null) => {
@@ -24,6 +25,11 @@ export class HomeComponent implements OnInit {
 
   displayModal(active: boolean){
     this.modalIsActive = active;
+  }
+
+  playSound(){
+    var audio = new Audio('../assets/sounds/sound1.m4a');
+    audio.play();
   }
 
 }

@@ -10,7 +10,7 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  modalIsActive: Boolean = true;
+  displayCongrats: Boolean = true;
   currentCheck = 0;
   recipe!: Recipe;
   error = '';
@@ -18,15 +18,14 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(private recipeService: RecipeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    window.scroll(0,0);
+
     let id = this.route.snapshot.paramMap.get('id');
 
     if(id != null) this.getRecipe(+id);
   }
 
   getRecipe(id: number){
-
-    window.scroll(0,0);
-
     this.recipeService.getRecipe(id)
     .subscribe({
       next: (response) => {
@@ -38,15 +37,20 @@ export class RecipeDetailsComponent implements OnInit {
     })
   }
 
-  checkedItems(check: boolean){
-    if(check) this.currentCheck += 1
+  successItems(success: boolean){
+    if(success) this.currentCheck += 1
     else this.currentCheck -= 1;
 
-    console.log('Current : ' + this.currentCheck + ' | Total : ' + this.recipe.steps.length);
+    if(this.currentCheck == this.recipe.steps.length) this.playSound();
   }
 
-  displayModal(active: boolean){
-    this.modalIsActive = active;
+  displayModalCongrats(active: boolean){
+    this.displayCongrats = active;
+  }
+
+  playSound(){
+    var audio = new Audio('../assets/sounds/sound2.m4a');
+    audio.play();
   }
 
 }
