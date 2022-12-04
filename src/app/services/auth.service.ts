@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { BodyLogin, Token } from '../models/auth';
 import { environment } from '../models/environment ';
+import { User } from '../models/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { environment } from '../models/environment ';
 export class AuthService {
 
   localStorageKey = 'ifp-user';
+  gamerPath = '/gamers'
 
   public tokenSubject: BehaviorSubject<Token | null>;
 
@@ -46,5 +48,12 @@ export class AuthService {
   logout(){
     this.tokenSubject.next(null);
     localStorage.removeItem(this.localStorageKey);
+  }
+
+  getGamers(): Observable<User[]>{
+    return this.http
+      .get<User[]>(
+        `${environment.apiURL}${this.gamerPath}`
+      );
   }
 }

@@ -3,22 +3,15 @@
     <app-navbar></app-navbar>
 
     <div class="hero-body" style="padding-top: 15px!important; padding-bottom: 10px!important;">
-        <div class="container has-text-centered">
-            <figure class="image is-inline-block" style="height: 256px; width: 256px;">
-                <img class="is-rounded" src="../../assets/images/Domi.png"/>
+        <div class="container has-text-centered" *ngIf="token">
+            <figure  class="image is-inline-block" style="height: 256px; width: 256px;" *ngFor="let gamer of gamers">
+                <img class="is-rounded" [src]="gamer.avatarUrl"/>
             </figure>
+        </div>
+        <div class="container has-text-centered" *ngIf="!token">
             <figure class="image is-inline-block" style="height: 256px; width: 256px;">
                 <img class="is-rounded" src="../../assets/images/inforpatissien.png"/>
             </figure>
-            <figure class="image is-inline-block" style="height: 256px; width: 256px;">
-                <img class="is-rounded" src="../../assets/images/Eva.png"/>
-            </figure>
-            <figure class="image is-inline-block" style="height: 256px; width: 256px;">
-                <img class="is-rounded" src="../../assets/images/Pascale.png"/>
-            </figure>
-            <p class="title is-1 has-text-white is-hidden-mobile">
-                
-            </p>
         </div>
     </div>
 

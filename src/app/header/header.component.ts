@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Token, User } from '../models/auth';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,31 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  token: Token | null = null;
+  gamers!: User[];
+  
+  constructor(public router: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.getGamers();
   }
+
+  getGamers(){
+    this.authService.tokenSubject.subscribe(
+      (token : Token | null) => {
+        this.token = token;
+      }
+    )
+    
+    this.authService.getGamers()
+    .subscribe({
+      next: (response) => {
+        console.log(response);
+        this.gamers = response;
+      }
+    })
+  }
+
+
 
 }

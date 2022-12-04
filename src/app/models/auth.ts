@@ -9,3 +9,9 @@ export class Token{
     userName!: string;
     gamer!: Boolean;
 }
+
+export class User{
+    name!: string;
+    gamer!: Boolean;
+    avatarUrl!: string;
+}

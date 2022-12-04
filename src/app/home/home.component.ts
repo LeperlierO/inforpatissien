@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.playSound();
     window.scroll(0,0);
     this.authService.tokenSubject.subscribe(
       (token : Token | null) => {
         if(token != null) this.modalIsActive = token.gamer;
+        if(token != null && token.gamer) this.playSound();
       }
     )
   }
