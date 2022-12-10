@@ -33,6 +33,7 @@ import { RecipeChronologyComponent } from './recipe-chronology/recipe-chronology
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.component';
 import { RecipeIngredientsComponent } from './recipe-ingredients/recipe-ingredients.component';
+import { RecipeValidationComponent } from './recipe-validation/recipe-validation.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RecipeIngredientsComponent } from './recipe-ingredients/recipe-ingredie
     RecipeChronologyComponent,
     RecipeListComponent,
     RecipeListItemComponent,
-    RecipeIngredientsComponent
+    RecipeIngredientsComponent,
+    RecipeValidationComponent
   ],
   imports: [
     BrowserModule,

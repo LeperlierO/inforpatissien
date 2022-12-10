@@ -1,0 +1,146 @@
+<div class="modal-background"></div>
+<div class="modal-content">
+  <div class="box">
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <div class="steps" id="stepsDemo">
+            <div class="step-item" [ngClass]="{'is-active':activeStep==1}">
+              <div class="step-marker">1</div>
+              <div class="step-details">
+                <p class="step-title">Infos</p>
+              </div>
+            </div>
+            <div class="step-item" [ngClass]="{'is-active':activeStep==2}">
+              <div class="step-marker">2</div>
+              <div class="step-details">
+                <p class="step-title">Nom</p>
+              </div>
+            </div>
+            <div class="step-item" [ngClass]="{'is-active':activeStep==3}">
+              <div class="step-marker">3</div>
+              <div class="step-details">
+                <p class="step-title">Photo</p>
+              </div>
+            </div>
+            <div class="step-item" [ngClass]="{'is-active':activeStep==4}">
+              <div class="step-marker">4</div>
+              <div class="step-details">
+                <p class="step-title">Classement</p>
+              </div>
+            </div>
+            <div class="step-item" [ngClass]="{'is-active':activeStep==5}">
+              <div class="step-marker">5</div>
+              <div class="step-details">
+                <p class="step-title">Réalisation</p>
+              </div>
+            </div>
+            <div class="steps-content">
+              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==1}">
+                Bravo ! T'es arrivé à réaliser la recette jusq'au bout etc
+              </div>
+              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==2}">
+                <article class="message is-info">
+                  <div class="message-body">
+                    Sélectionner le nom de la recette que vous venez de réaliser
+                  </div>
+                </article>
+                <div class="tags are-medium">
+                  <span class="tag is-rounded" *ngFor="let proposition of namePropositions" (click)="selectedProposition=proposition" [ngClass]="{'is-primary':selectedProposition==proposition}">{{proposition}}</span>
+                </div>
+              </div>
+              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==3}">
+                <div class="columns is-flex is-vcentered">
+                  <div class="column">
+                  </div>
+                  <div class="column">
+                    <div class="card">
+                      <div class="card-image">
+                        <figure class="image is-4by3">
+                          <img [src]="photoUrl" alt="Placeholder image">
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <div class="content">
+                          <div class="file is-boxed">
+                            <label class="file-label">
+                              <input class="file-input" type="file" name="resume" (change)="uploadFile($event)">
+                              <span class="file-cta">
+                                <span class="file-icon">
+                                  <i class="fas fa-upload"></i>
+                                </span>
+                                <span class="file-label">
+                                  Choisir une photo
+                                </span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column">
+                  </div>
+                </div>
+              </div>
+              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==4}">  
+                
+                  <div class="columns is-flex is-vcentered">
+                    <div class="column"></div>
+                    <div class="column" style="padding-bottom:0px!important;">
+                      <div class="container podium">
+                        <div class="podium__item">
+                          <p class="podium__city is-flex is-vcentered">
+                            <figure class="image">
+                              <img class="is-rounded" src="https://inforpatissien-api.azurewebsites.net/assets/images/users/sis.png">
+                            </figure>
+                          </p>
+                          <div class="podium__rank second">2</div>
+                        </div>
+                        <div class="podium__item">
+                          <p class="podium__city is-flex is-vcentered">
+                            <figure class="image">
+                              <img class="is-rounded" src="https://inforpatissien-api.azurewebsites.net/assets/images/users/mum.png">
+                            </figure>
+                          </p>
+                          <div class="podium__rank first">
+                            <svg class="podium__number" viewBox="0 0 27.476 75.03" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="matrix(1, 0, 0, 1, 214.957736, -43.117417)">
+                              <path class="st8" d="M -198.928 43.419 C -200.528 47.919 -203.528 51.819 -207.828 55.219 C -210.528 57.319 -213.028 58.819 -215.428 60.019 L -215.428 72.819 C -210.328 70.619 -205.628 67.819 -201.628 64.119 L -201.628 117.219 L -187.528 117.219 L -187.528 43.419 L -198.928 43.419 L -198.928 43.419 Z" style="fill: #000;"/>
+                            </g>
+                          </svg>
+                          </div>
+                        </div>
+                        <div class="podium__item">
+                          <p class="podium__city is-flex is-vcentered">
+                            <figure class="image">
+                              <img class="is-rounded" src="https://inforpatissien-api.azurewebsites.net/assets/images/users/dad.png">
+                            </figure>
+                          </p>
+                          <div class="podium__rank third">3</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="column"></div>
+                  </div>
+
+              </div>
+              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==5}">
+                Réalisation
+              </div>
+            </div>
+            <div class="steps-actions">
+              <div class="steps-action">
+                <a data-nav="previous" class="button is-light" (click)="previousStep()">Précédent</a>
+              </div>
+              <div class="steps-action">
+                <a data-nav="next" class="button is-light" (click)="nextStep()">Suivant</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<button class="modal-close is-large" aria-label="close" (click)="closeModal()"></button>

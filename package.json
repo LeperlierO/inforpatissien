@@ -24,6 +24,7 @@
     "bulma-calendar": "^6.1.18",
     "bulma-divider": "^0.2.0",
     "bulma-list": "^1.2.0",
+    "bulma-steps": "^2.2.1",
     "bulma-timeline": "^3.0.5",
     "bulma-toast": "^2.4.1",
     "rxjs": "~7.4.0",

@@ -34,7 +34,8 @@
               "src/styles.css",
               "node_modules/bulma-list/css/bulma-list.css",
               "node_modules/bulma-timeline/dist/css/bulma-timeline.min.css",
-              "node_modules/bulma-divider/dist/css/bulma-divider.min.css"
+              "node_modules/bulma-divider/dist/css/bulma-divider.min.css",
+              "node_modules/bulma-steps/dist/css/bulma-steps.min.css"
             ],
             "scripts": []
           },
@@ -108,7 +109,8 @@
               "src/styles.css",
               "node_modules/bulma-list/css/bulma-list.css",
               "node_modules/bulma-timeline/dist/css/bulma-timeline.min.css",
-              "node_modules/bulma-divider/dist/css/bulma-divider.min.css"
+              "node_modules/bulma-divider/dist/css/bulma-divider.min.css",
+              "node_modules/bulma-steps/dist/css/bulma-steps.min.css"
             ],
             "scripts": []
           }

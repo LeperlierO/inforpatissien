@@ -10,7 +10,7 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  displayCongrats: Boolean = true;
+  displayCongrats: Boolean = false;
   currentCheck = 0;
   recipe!: Recipe;
   error = '';

@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
     this.authService.getGamers()
     .subscribe({
       next: (response) => {
-        console.log(response);
         this.gamers = response;
       }
     })
