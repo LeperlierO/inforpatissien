@@ -11,7 +11,6 @@ import { AuthService } from '../services/auth.service';
 export class HeaderComponent implements OnInit {
 
   token: Token | null = null;
-  gamers!: User[];
   
   constructor(public router: Router, public authService: AuthService) { }
 
@@ -25,13 +24,6 @@ export class HeaderComponent implements OnInit {
         this.token = token;
       }
     )
-    
-    this.authService.getGamers()
-    .subscribe({
-      next: (response) => {
-        this.gamers = response;
-      }
-    })
   }
 
 

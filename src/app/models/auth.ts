@@ -9,6 +9,8 @@ export class Token{
     userName!: string;
     gamer!: Boolean;
     connection!: Date;
+    avatarUrl!: string;
+    difficulty!: number;
 }
 
 export class User{

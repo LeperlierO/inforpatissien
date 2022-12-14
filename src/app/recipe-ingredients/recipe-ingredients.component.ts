@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ingredient, Step } from '../models/recipe';
 import { toast } from 'bulma-toast';
+import { AuthService } from '../services/auth.service';
+import { Token } from '../models/auth';
 
 @Component({
   selector: 'app-recipe-ingredients',
@@ -8,15 +10,26 @@ import { toast } from 'bulma-toast';
   styleUrls: ['./recipe-ingredients.component.css']
 })
 export class RecipeIngredientsComponent implements OnInit {
+  
+  token: Token | null = null;
 
   @Input() recipeIngredients!: Ingredient[];
   @Input() step!: Step; 
   @Output() closeEvent = new EventEmitter<boolean>();
   selectedIngredients: Ingredient[] = [];
   
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.tokenSubject.subscribe(
+      (token : Token | null) => {
+        this.token = token;
+        if(token?.difficulty == 3){
+          this.step.ingredients.forEach(i => this.step.description = this.step.description.replace(new RegExp(i.name.toLocaleLowerCase(), "g"), '[...]'));
+        }
+      }
+    )
+   
   }
 
   clickIngredient(ingredient: Ingredient){
