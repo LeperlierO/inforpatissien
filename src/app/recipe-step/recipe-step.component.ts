@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ingredient, Step } from '../models/recipe';
 
 @Component({
@@ -8,6 +8,7 @@ import { Ingredient, Step } from '../models/recipe';
 })
 export class RecipeStepComponent implements OnInit {
 
+  @Output() successStep = new EventEmitter();
   @Input() step!: Step;
   @Input() recipeIngredients!: Ingredient[];
   margin!: number;
@@ -26,6 +27,7 @@ export class RecipeStepComponent implements OnInit {
   closeModalIngredients(success: Boolean){
     this.displayModalIngredients(false);
     if(!this.step.success) this.step.success = success;
+    if(success) this.successStep.emit();
   }
   
 

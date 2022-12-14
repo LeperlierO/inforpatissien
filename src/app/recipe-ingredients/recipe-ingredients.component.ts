@@ -37,11 +37,12 @@ export class RecipeIngredientsComponent implements OnInit {
   validationIngredients(){
     let missingIngredients = this.step.ingredients.filter(i => this.selectedIngredients.find(ii => ii.id == i.id) == null);
     let excessIngredients = this.selectedIngredients.filter(i => this.step.ingredients.find(ii => ii.id == i.id) == null);
-  
+
     if(missingIngredients.length > 0 || excessIngredients.length > 0){
       toast({ message: 'Des ingrédients sont manquants ou en trop', type: 'is-danger', position:'top-center', duration:3000 });
+      this.closeEvent.emit(true); // TO REMOVE
     }else{
-      toast({ message: 'Bravo, l\'étape "'+this.step.name+'" est terminée !', type: 'is-success', position:'top-center', duration:3000 });
+      toast({ message: 'Bravo, l\'étape '+this.step.order+' est terminée avec succès !', type: 'is-success', position:'top-center', duration:3000 });
       this.closeEvent.emit(true);
     }
   }

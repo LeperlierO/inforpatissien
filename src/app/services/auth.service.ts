@@ -11,7 +11,8 @@ import { User } from '../models/auth';
 export class AuthService {
 
   localStorageKey = 'ifp-user';
-  gamerPath = '/gamers'
+  gamerPath = '/gamers';
+  podiumPath = '/podium';
 
   public tokenSubject: BehaviorSubject<Token | null>;
 
@@ -39,6 +40,7 @@ export class AuthService {
       body
     ).pipe(
       map((token: Token) => {
+        token.connection = new Date();
         this.tokenSubject.next(token);
         return token;
       })
@@ -54,6 +56,21 @@ export class AuthService {
     return this.http
       .get<User[]>(
         `${environment.apiURL}${this.gamerPath}`
+      );
+  }
+
+  getPodim(): Observable<User[]>{
+    return this.http
+      .get<User[]>(
+        `${environment.apiURL}${this.podiumPath}`
+      );
+  }
+
+  setUserPodim(){
+    return this.http
+      .patch(
+        `${environment.apiURL}${this.podiumPath}`,
+        null
       );
   }
 }

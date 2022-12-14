@@ -2,6 +2,10 @@
     padding-bottom: 25px;
 }
 
+.column{
+    padding: 20px!important;
+}
+
 .reduce-notification{
     padding-top: 0.5rem!important;
     padding-bottom: 0.5rem!important;

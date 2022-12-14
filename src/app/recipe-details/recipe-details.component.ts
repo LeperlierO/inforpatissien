@@ -37,11 +37,16 @@ export class RecipeDetailsComponent implements OnInit {
     })
   }
 
-  successItems(success: boolean){
-    if(success) this.currentCheck += 1
-    else this.currentCheck -= 1;
+  successItems(){
+    this.currentCheck += 1
+    this.tryDisplayModalCongrats();
+  }
 
-    if(this.currentCheck == this.recipe.steps.length) this.playSound();
+  tryDisplayModalCongrats(){
+    if(this.currentCheck == this.recipe.steps.length){
+      this.playSound();
+      this.displayModalCongrats(true);
+    }
   }
 
   displayModalCongrats(active: boolean){

@@ -38,3 +38,7 @@
     <app-realization-photo [photo]="realization.photos[2] == undefined ? realization.mainPhoto : realization.photos[2]" class="tile is-parent"></app-realization-photo>
   </div>
 </div>
+
+<div class="container is-max-widescreen section" *ngIf="comments.length > 0 && realization !== undefined && realization !== null"> 
+  <app-realization-comment *ngFor="let comment of comments" [comment]="comment"></app-realization-comment>
+</div>

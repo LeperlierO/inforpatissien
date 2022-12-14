@@ -8,8 +8,6 @@ import { Step } from '../models/recipe';
 })
 export class RecipeChronologyComponent implements OnInit {
 
-  @Output() successEvent = new EventEmitter<boolean>();
-
   @Input() step!: Step;
 
   constructor() { }

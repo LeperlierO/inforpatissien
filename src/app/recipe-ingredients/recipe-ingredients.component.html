@@ -1,5 +1,5 @@
 <div class="modal-background"></div>
-<div class="modal-content">
+<div class="modal-content" style="width: 999px!important;">
   <div class="box">
     <article class="media">
       <div class="media-content">
@@ -7,9 +7,8 @@
           <div class="notification reduce-notification has-text-centered is-info">
             {{step.name}}
           </div>
-          <div class="columns">
-            <div class="column">{{step.description}}</div>
-            <div class="is-divider-vertical"></div>
+          <div class="columns is-flex is-vcentered">
+            <div class="column has-text-centered" style="border-right: 2px solid #DB9D57;">{{step.description}}</div>
             <div class="column">
               <div class="tags are-medium">
                 <span class="tag is-rounded" style="cursor:pointer" [ngClass]="{'is-primary':selectedIngredients.includes(ingredient)}" *ngFor="let ingredient of recipeIngredients;" (click)="clickIngredient(ingredient)">{{ingredient.name}}</span>

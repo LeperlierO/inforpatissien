@@ -91,16 +91,16 @@
                       <div class="container podium">
                         <div class="podium__item">
                           <p class="podium__city is-flex is-vcentered">
-                            <figure class="image">
-                              <img class="is-rounded" src="https://inforpatissien-api.azurewebsites.net/assets/images/users/sis.png">
+                            <figure class="image" *ngIf="podium.length > 1">
+                              <img class="is-rounded" [src]="podium[1].avatarUrl">
                             </figure>
                           </p>
                           <div class="podium__rank second">2</div>
                         </div>
                         <div class="podium__item">
                           <p class="podium__city is-flex is-vcentered">
-                            <figure class="image">
-                              <img class="is-rounded" src="https://inforpatissien-api.azurewebsites.net/assets/images/users/mum.png">
+                            <figure class="image" *ngIf="podium.length > 0">
+                              <img class="is-rounded" [src]="podium[0].avatarUrl">
                             </figure>
                           </p>
                           <div class="podium__rank first">
@@ -113,8 +113,8 @@
                         </div>
                         <div class="podium__item">
                           <p class="podium__city is-flex is-vcentered">
-                            <figure class="image">
-                              <img class="is-rounded" src="https://inforpatissien-api.azurewebsites.net/assets/images/users/dad.png">
+                            <figure class="image" *ngIf="podium.length > 2">
+                              <img class="is-rounded" [src]="podium[2].avatarUrl">
                             </figure>
                           </p>
                           <div class="podium__rank third">3</div>
@@ -126,15 +126,15 @@
 
               </div>
               <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==5}">
-                Réalisation
+                <button class="button is-primary" (click)="createRealization()">Visualiser ma première inforpâtisserie</button>
               </div>
             </div>
             <div class="steps-actions">
               <div class="steps-action">
-                <a data-nav="previous" class="button is-light" (click)="previousStep()">Précédent</a>
+                <a data-nav="previous" class="button is-light" (click)="previousStep()" [ngClass]="{'hidden':activeStep==1}">Précédent</a>
               </div>
               <div class="steps-action">
-                <a data-nav="next" class="button is-light" (click)="nextStep()">Suivant</a>
+                <a data-nav="next" class="button is-light" (click)="nextStep()" [ngClass]="{'hidden':activeStep==5}">Suivant</a>
               </div>
             </div>
           </div>

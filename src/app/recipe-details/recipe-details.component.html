@@ -1,23 +1,28 @@
-
+<section class="section" *ngIf="recipe !== undefined && recipe !== null">
+    <h1 class="title">{{recipe.mystery ? 'Recette mystère' : recipe.name}}</h1>
+    <h2 class="subtitle">
+        {{recipe.mystery ? '' : recipe.description}}
+    </h2>
+</section>
 
 <section class="section is-small" *ngIf="recipe !== undefined && recipe !== null">
     <div class="columns">
         <div class="column is-one-third">
-            <app-recipe-step *ngFor="let s of recipe.steps | step : false" [step]="s" [recipeIngredients]="recipe.ingredients"></app-recipe-step>
+            <app-recipe-step *ngFor="let s of recipe.steps | step : false" [step]="s" [recipeIngredients]="recipe.ingredients" (successStep)="successItems()"></app-recipe-step>
         </div>
         <div class="column is-hidden-mobile">
             <div class="timeline is-centered">
                 <header class="timeline-header">
                     <span class="tag is-medium is-primary">Début</span>
                 </header>
-                <app-recipe-chronology class="timeline is-centered step" *ngFor="let s of recipe.steps" [step]="s" (successEvent)="successItems($event)"></app-recipe-chronology>
+                <app-recipe-chronology class="timeline is-centered step" *ngFor="let s of recipe.steps" [step]="s"></app-recipe-chronology>
                 <header class="timeline-header">
-                    <span class="tag is-medium is-primary" (click)="displayModalCongrats(true)">Fin</span>
+                    <span class="tag is-medium is-primary" (click)="tryDisplayModalCongrats">Fin</span>
                 </header>
             </div>
         </div>
         <div class="column is-one-third">
-            <app-recipe-step *ngFor="let s of recipe.steps | step : true" [step]="s" [recipeIngredients]="recipe.ingredients"></app-recipe-step>
+            <app-recipe-step *ngFor="let s of recipe.steps | step : true" [step]="s" [recipeIngredients]="recipe.ingredients" (successStep)="successItems()"></app-recipe-step>
         </div>
     </div>
 </section>

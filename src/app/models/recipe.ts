@@ -7,6 +7,7 @@ export class Recipe
     code!: string;
     name!: string;
     description!: string;
+    mystery!: Boolean;
     difficulty!: Setting;
     steps!: Step[];
     ingredients!: Ingredient[];
@@ -18,6 +19,7 @@ export class MiniRecipe
     id!: number;
     code!: string;
     name!: string;
+    mystery!: Boolean;
     difficulty!: Setting;
 }
 
