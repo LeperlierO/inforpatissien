@@ -53,7 +53,6 @@ export class RecipeIngredientsComponent implements OnInit {
 
     if(missingIngredients.length > 0 || excessIngredients.length > 0){
       toast({ message: 'Des ingrédients sont manquants ou en trop', type: 'is-danger', position:'top-center', duration:3000 });
-      this.closeEvent.emit(true); // TO REMOVE
     }else{
       toast({ message: 'Bravo, l\'étape '+this.step.order+' est terminée avec succès !', type: 'is-success', position:'top-center', duration:3000 });
       this.closeEvent.emit(true);
