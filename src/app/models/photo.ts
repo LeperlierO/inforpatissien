@@ -4,6 +4,7 @@ export class Photo
     name!: string;
     description!: string;
     url!: string;
+    hiddenUrl!: string;
     main!: boolean;
     position!: PhotoPosition;
 }

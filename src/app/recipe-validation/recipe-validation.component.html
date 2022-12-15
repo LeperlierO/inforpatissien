@@ -37,12 +37,16 @@
             </div>
             <div class="steps-content">
               <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==1}">
-                Bravo ! T'es arrivé à réaliser la recette jusq'au bout etc
+                <article class="message is-info">
+                  <div class="message-body">
+                    Bravoooooooo ! Tu as réussi à terminer la recette mystère jusqu'au bout. Enfin ... il te reste quelques petites étapes à terminer afin de devenir un vrai inforpatissien. Suit les étapes dans l'ordre, et dévouvre le résultat !  
+                  </div>
+                </article>
               </div>
               <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==2}">
                 <article class="message is-info">
                   <div class="message-body">
-                    Sélectionner le nom de la recette que vous venez de réaliser
+                    Sélectionne le nom de la recette que tu viens de réaliser.
                   </div>
                 </article>
                 <div class="tags are-medium">
@@ -126,7 +130,7 @@
 
               </div>
               <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==5}">
-                <button class="button is-primary" (click)="createRealization()">Visualiser ma première inforpâtisserie</button>
+                <button class="button is-primary" (click)="createRealization()">Visualiser ma première inforpatisserie</button>
               </div>
             </div>
             <div class="steps-actions">

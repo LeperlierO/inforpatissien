@@ -3,7 +3,7 @@
     <div class="modal-background"></div>
     <div class="modal-content" style="overflow: hidden!important;">
       <p class="image">
-        <img src="{{photo.url}}" style="top: 50%;">
+        <img src="{{photo.hiddenUrl.length > 0 ? photo.hiddenUrl : photo.url}}" style="top: 50%;">
       </p>
     </div>
     <button class="modal-close is-large" aria-label="close" (click)="modalIsActive=false"></button>

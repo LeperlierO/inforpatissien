@@ -39,7 +39,7 @@ export class RecipeValidationComponent implements OnInit {
       }
     )
 
-    this.namePropositions.push(this.recipe.name);
+    this.namePropositions.splice(2, 0, this.recipe.name);
   }
 
   closeModal(){
