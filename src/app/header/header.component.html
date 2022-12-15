@@ -4,13 +4,13 @@
 
     <div class="hero-body" style="padding-top: 15px!important; padding-bottom: 10px!important;">
         <div class="container has-text-centered" *ngIf="token">
-            <figure  class="image is-inline-block" style="height: 256px; width: 256px;">
-                <img class="is-rounded" [src]="token.avatarUrl"/>
+            <figure  class="image is-inline-block">
+                <img class="is-rounded" [src]="token.avatarUrl" style="height:138px; width:113px;"/>
             </figure>
         </div>
-        <div class="container has-text-centered" *ngIf="!token">
-            <figure class="image is-inline-block" style="height: 256px; width: 256px;">
-                <img class="is-rounded" src="../../assets/images/inforpatissien.png"/>
+        <div class="container has-text-centered is-128x128" *ngIf="!token">
+            <figure class="image is-inline-block">
+                <img class="is-rounded" src="https://inforpatissien-api.azurewebsites.net/assets/images/users/bro.png" style="height:138px; width:113px;"/>
             </figure>
         </div>
     </div>

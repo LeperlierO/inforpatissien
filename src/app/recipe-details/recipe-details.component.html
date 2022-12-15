@@ -17,7 +17,7 @@
                 </header>
                 <app-recipe-chronology class="timeline is-centered step" *ngFor="let s of recipe.steps" [step]="s"></app-recipe-chronology>
                 <header class="timeline-header">
-                    <span class="tag is-medium is-primary" (click)="tryDisplayModalCongrats">Fin</span>
+                    <span class="tag is-medium is-primary" (click)="tryDisplayModalCongrats()">Fin</span>
                 </header>
             </div>
         </div>
