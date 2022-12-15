@@ -35,6 +35,7 @@ import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.com
 import { RecipeIngredientsComponent } from './recipe-ingredients/recipe-ingredients.component';
 import { RecipeValidationComponent } from './recipe-validation/recipe-validation.component';
 import { RealizationCommentComponent } from './realization-comment/realization-comment.component';
+import { RealizationPhotosFormComponent } from './realization-photos-form/realization-photos-form.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { RealizationCommentComponent } from './realization-comment/realization-c
     RecipeListItemComponent,
     RecipeIngredientsComponent,
     RecipeValidationComponent,
-    RealizationCommentComponent
+    RealizationCommentComponent,
+    RealizationPhotosFormComponent
   ],
   imports: [
     BrowserModule,

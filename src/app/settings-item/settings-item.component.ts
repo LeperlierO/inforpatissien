@@ -12,6 +12,8 @@ export class SettingsItemComponent implements OnInit {
 
   @Output() deleteEvent = new EventEmitter<void>();
   @Input() realization!: MiniRealization;
+
+  photosModalIsActive = false;
   
   constructor(private realizationService: RealizationService) { }
 
@@ -20,6 +22,10 @@ export class SettingsItemComponent implements OnInit {
 
   edit(){
     toast({ message: "edit " + this.realization.name, type: 'is-success', position:'top-center' });
+  }
+
+  displayPhotosModal(active: boolean){
+    this.photosModalIsActive = active;
   }
 
   delete(){

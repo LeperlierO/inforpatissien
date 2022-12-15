@@ -74,9 +74,32 @@ export class RealizationService {
 
     return this.http
       .post<string>(
-        `${environment.apiURL}${this.realizationPath}/upload-image`, 
+        `${environment.apiURL}${this.realizationPath}/upload-photo`, 
         formData
       );
+  }
+
+  upsertPhoto(file: File, realizationCode: string, fileName: string, realizationId: number, main: Boolean, order: number):Observable<Realization>{
+    const formData = new FormData(); 
+    formData.append("file", file, file.name);
+    formData.append("realizationCode", realizationCode);
+    formData.append("fileName", fileName);
+
+    return this.http
+      .post<Realization>(
+        `${environment.apiURL}${this.realizationPath}/photos?realizationId=` + realizationId + `&main=` + main + `&order=` + order, 
+        formData
+      ).pipe(
+        map((response: Realization) => {
+          const mainPhoto = response.photos.find(p => p.main)!;
+  
+          if(mainPhoto != null){
+            response.mainPhoto = mainPhoto;
+            response.photos.splice(response.photos.indexOf(mainPhoto),1);
+          }
+
+          return response;
+      }));
   }
 
   deleteRealization(id: number){

@@ -26,6 +26,12 @@
           </span>
         </button>
 
+        <button class="button is-dark is-inverted" (click)="displayPhotosModal(true)">
+          <span class="icon">
+            <i class="fas fa-camera"></i>
+          </span>
+        </button>
+
         <button class="button is-dark is-inverted" (click)="delete()">
           <span class="icon">
             <i class="fas fa-trash"></i>
@@ -39,4 +45,8 @@
         </button>-->
       </div>
     </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'is-active': photosModalIsActive}">
+    <app-realization-photos-form *ngIf="photosModalIsActive" (closeEvent)="displayPhotosModal(false)" [miniRealization]="realization"></app-realization-photos-form>
   </div>
