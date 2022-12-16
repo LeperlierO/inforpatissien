@@ -16,25 +16,25 @@ export class Comment
 export const broComments = [];
 
 export const sisComments = [
-    new Comment("Mais waaaaaaaaaaaaaaaw ! 🎄", 16, beb),
-    new Comment("Bravo pitchounette ton gâteau est digne d'un repas de fêtes !", 58, mum),
+    new Comment("Bah dis donc, tu t'es donnée ! Hâte de goûter 😋", 16, beb),
+    new Comment("Bravo ma grande, ton petit frère a du souci à se faire !!! 👌👌👌", 58, mum),
     new Comment("Oté le gâteau lé vraiment bo là!", 17, dad),
-    new Comment("... 🤮", 17, bil),
-    new Comment("J'ai du soucis à me faire mouais, comment je vais faire pour rester la pâtissier de la famille ...", 39, bro),
+    new Comment("Mouais bof", 17, bil),
+    new Comment("Comment je vais faire pour rester le pâtissier de la famille maintenant moi... 😥", 39, bro),
 ];
 
 export const dadComments = [
-    new Comment("Bravo domi t'es le meilleur !!! 😄", 58, mum),
-    new Comment("L'insert caramel est bien coulant et le biscuit bien croustillant, j'adore, bravo domi !", 16, beb),
-    new Comment("Waaaaaaaaaaaaaaaaaaw papa inscrit toi au meilleur pâtissier c'est trop bon", 39, bro),
-    new Comment("Eh bah domi, chapeau l'artiste ! 👏", 17, bil),
-    new Comment("Mhhhhh la ganache vanille j'adore, très distingué", 47, sis),
+    new Comment("Bravo Domi tu t'améliores !!! 😄😄😄", 58, mum),
+    new Comment("Beh voilà ! On sait maintenant d'où vient l'instinct pâtissier du Leperlier junior 👏", 16, beb),
+    new Comment("L'élève a donc dépassé le maître...", 39, bro),
+    new Comment("C'est bon, c'est terminé ? Allez ti' rhum Domi 🍻", 17, bil),
+    new Comment("C'est un 10/10, et ça... J'ACHÈTE !!!", 47, sis),
 ];
 
 export const mumComments = [
-    new Comment("Un super gâteau pascale 😄", 17, bil),
-    new Comment("Pascale pascale ... j'aime pas trop trop ... j'adore !!! ", 17, dad),
-    new Comment("Enfin un gâteau qui n'a pas cramé 😋", 39, bro),
-    new Comment("Très beau gâteau, très bon, j'achète !!", 16, beb),
-    new Comment("Maman j'adooooooore ✨", 47, sis),
+    new Comment("Un super gâteau Pascale, encore meilleur que votre tarte aux pommes 😄", 17, bil),
+    new Comment("Bon ok, j'avoue... Pour une fois que c'est pas cramé, c'est très bon", 17, dad),
+    new Comment("C'est pas bon... C'EST TRÈS BON 😋", 39, bro),
+    new Comment("Bon... ça reste entre nous hein, mais c'est encore meilleur que les gâteaux du mini Leperlier 🤫", 16, beb),
+    new Comment("Mais voilà, il est toujours temps de se réorienter ! 🍰", 47, sis),
 ];
