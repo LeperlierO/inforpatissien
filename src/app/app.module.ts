@@ -28,7 +28,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RealizationPhotoComponent } from './realization-photo/realization-photo.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipeStepComponent } from './recipe-step/recipe-step.component';
-import { StepPipe } from './pipes/step.pipe';
+import { RecipeStepPipe } from './pipes/recipe-step.pipe';
 import { RecipeChronologyComponent } from './recipe-chronology/recipe-chronology.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeListItemComponent } from './recipe-list-item/recipe-list-item.component';
@@ -36,6 +36,7 @@ import { RecipeIngredientsComponent } from './recipe-ingredients/recipe-ingredie
 import { RecipeValidationComponent } from './recipe-validation/recipe-validation.component';
 import { RealizationCommentComponent } from './realization-comment/realization-comment.component';
 import { RealizationPhotosFormComponent } from './realization-photos-form/realization-photos-form.component';
+import { RecipeStepDescriptionPipe } from './pipes/recipe-step-description.pipe';
 
 @NgModule({
   declarations: [
@@ -54,14 +55,15 @@ import { RealizationPhotosFormComponent } from './realization-photos-form/realiz
     RealizationPhotoComponent,
     RecipeDetailsComponent,
     RecipeStepComponent,
-    StepPipe,
+    RecipeStepPipe,
     RecipeChronologyComponent,
     RecipeListComponent,
     RecipeListItemComponent,
     RecipeIngredientsComponent,
     RecipeValidationComponent,
     RealizationCommentComponent,
-    RealizationPhotosFormComponent
+    RealizationPhotosFormComponent,
+    RecipeStepDescriptionPipe
   ],
   imports: [
     BrowserModule,

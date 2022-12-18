@@ -8,7 +8,7 @@
 <section class="section is-small" *ngIf="recipe !== undefined && recipe !== null">
     <div class="columns">
         <div class="column is-one-third">
-            <app-recipe-step *ngFor="let s of recipe.steps | step : false" [step]="s" [recipeIngredients]="recipe.ingredients" (successStep)="successItems()"></app-recipe-step>
+            <app-recipe-step *ngFor="let s of recipe.steps | recipeStep : false" [step]="s" [recipeIngredients]="recipe.ingredients" (successStep)="successItems()"></app-recipe-step>
         </div>
         <div class="column is-hidden-mobile">
             <div class="timeline is-centered">
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="column is-one-third">
-            <app-recipe-step *ngFor="let s of recipe.steps | step : true" [step]="s" [recipeIngredients]="recipe.ingredients" (successStep)="successItems()"></app-recipe-step>
+            <app-recipe-step *ngFor="let s of recipe.steps | recipeStep : true" [step]="s" [recipeIngredients]="recipe.ingredients" (successStep)="successItems()"></app-recipe-step>
         </div>
     </div>
 </section>

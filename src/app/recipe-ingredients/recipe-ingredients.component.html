@@ -8,7 +8,7 @@
             {{step.name}}
           </div>
           <div class="columns is-flex is-vcentered">
-            <div class="column has-text-centered" style="border-right: 2px solid #DB9D57;">{{step.description}}</div>
+            <div class="column has-text-centered" style="border-right: 2px solid #DB9D57;">{{step.description | recipeStepDescription:step:token}}</div>
             <div class="column">
               <div class="tags are-medium">
                 <span class="tag is-rounded" style="cursor:pointer" [ngClass]="{'is-primary':selectedIngredients.includes(ingredient)}" *ngFor="let ingredient of recipeIngredients;" (click)="clickIngredient(ingredient)">{{ingredient.name}}</span>

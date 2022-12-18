@@ -57,5 +57,4 @@ export class RecipeDetailsComponent implements OnInit {
     var audio = new Audio('../assets/sounds/sound2.m4a');
     audio.play();
   }
-
 }

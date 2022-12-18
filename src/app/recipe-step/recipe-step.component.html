@@ -3,7 +3,7 @@
         <article class="message">
             <div class="message-body" style="height: 200px!important; overflow: hidden">
                 <h2 class="subtitle" style="margin-bottom: 5px;">Étape {{step.order}}</h2>
-                {{step.description}}
+                {{step.description | recipeStepDescription:step:token}}
             </div>
         </article>
     </div>

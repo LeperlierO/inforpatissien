@@ -24,9 +24,6 @@ export class RecipeIngredientsComponent implements OnInit {
     this.authService.tokenSubject.subscribe(
       (token : Token | null) => {
         this.token = token;
-        if(token?.difficulty == 3){
-          this.step.ingredients.forEach(i => this.step.description = this.step.description.replace(new RegExp(i.name.toLocaleLowerCase(), "g"), '[...]'));
-        }
       }
     )
    
