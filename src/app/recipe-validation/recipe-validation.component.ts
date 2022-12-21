@@ -20,8 +20,11 @@ export class RecipeValidationComponent implements OnInit {
   podium: User[] = [];
   
   activeStep: number = 1;
-  namePropositions = ['Bûche de Noël', 'Bûche chocolat blanc et beurre de cacahuète', 'Gâteau blanc', 'Bûche caramel beurre salé', 'Bûche coco', 'Gâteau de Paques', 'Bûche vanille caramel noix de pécan']
-  selectedProposition: string = "";
+  recipePropositions = [{name: 'Bûche trois chocolat', description: 'Blanc, lait, noir'},
+                        {name: 'Bûche chocolat blanc', description: 'Fève de tonka, caramel beure salé'},
+                        {name: 'Bûche vanille', description: 'Speculos, caramel'},
+                        {name: 'Bûche chocolat noir', description: 'Beurre de cacahuète, coco'}]
+  selectedProposition = {name: '', description: ''};
   @Output() closeEvent = new EventEmitter<boolean>();
   @Input() recipe!: Recipe;
 
@@ -39,7 +42,7 @@ export class RecipeValidationComponent implements OnInit {
       }
     )
 
-    this.namePropositions.splice(2, 0, this.recipe.name);
+    this.recipePropositions.splice(3, 0, {name: this.recipe.name, description: this.recipe.description});
   }
 
   closeModal(){
@@ -51,7 +54,7 @@ export class RecipeValidationComponent implements OnInit {
     let error = "";
 
     if(this.activeStep == 2){
-      authorize = this.selectedProposition == this.recipe.name;
+      authorize = this.selectedProposition.name == this.recipe.name && this.selectedProposition.description == this.recipe.description;
       if(!authorize) error = "Le nom de recette selectionné n'est pas le bon"
     }
     else if(this.activeStep == 3){

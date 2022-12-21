@@ -36,26 +36,77 @@
               </div>
             </div>
             <div class="steps-content">
-              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==1}">
-                <article class="message is-info">
-                  <div class="message-body">
-                    Bravoooooooo ! Tu as réussi à terminer la recette mystère jusqu'au bout. Enfin ... il te reste quelques petites étapes à terminer afin de devenir un vrai inforpatissien. Suit les étapes dans l'ordre, et dévouvre le résultat !  
+              <div class="step-content" [ngClass]="{'is-active':activeStep==1}">
+                <article class="media" style="border:0px;">
+                  <div class="media-left">
+                    <figure class="image is-64x64">
+                      <img src="https://inforpatissien-api.azurewebsites.net/assets/images/users/bro.png" class="is-rounded" alt="Image">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>L'inforpatissien</strong> <small>@junior</small>
+                        <br>
+                        Bravoooooooo ! Tu as réussi à terminer la recette mystère jusqu'au bout. Enfin... il te reste quelques petites étapes à terminer afin de devenir un vrai inforpatissien. Suis les étapes dans l'ordre, et découvre le résultat !
+                      </p>
+                    </div>
+                    <nav class="level is-mobile">
+                      <div class="level-left">
+                        <a class="level-item" aria-label="retweet">
+                          <span class="icon is-small">
+                            <i class="fas fa-retweet" aria-hidden="true"></i>
+                          </span>
+                        </a>
+                        <a class="level-item" aria-label="like">
+                          <span class="icon is-small">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                          </span>
+                        </a>
+                      </div>
+                    </nav>
                   </div>
                 </article>
               </div>
-              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==2}">
-                <article class="message is-info">
-                  <div class="message-body">
-                    Sélectionne le nom de la recette que tu viens de réaliser.
+              <div class="step-content" [ngClass]="{'is-active':activeStep==2}">
+                <article class="media mb-5" style="border:0px;">
+                  <div class="media-left">
+                    <figure class="image is-64x64">
+                      <img src="https://inforpatissien-api.azurewebsites.net/assets/images/users/bro.png" class="is-rounded" alt="Image">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>L'inforpatissien</strong> <small>@junior</small>
+                        <br>
+                        Sélectionne le nom de la recette que tu viens de réaliser.
+                      </p>
+                    </div>
                   </div>
                 </article>
-                <div class="tags are-medium">
-                  <span class="tag is-rounded" *ngFor="let proposition of namePropositions" (click)="selectedProposition=proposition" [ngClass]="{'is-primary':selectedProposition==proposition}">{{proposition}}</span>
+                <div class="tags has-addons is-centered mb-0" *ngFor="let proposition of recipePropositions" (click)="selectedProposition=proposition">
+                  <span class="tag" [ngClass]="{'is-primary':selectedProposition==proposition}">{{proposition.name}}</span>
+                  <span class="tag is-info">{{proposition.description}}</span>
                 </div>
               </div>
-              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==3}">
+              <div class="step-content has-text-centered is-centered" [ngClass]="{'is-active':activeStep==3}">
                 <div class="columns is-flex is-vcentered">
-                  <div class="column">
+                  <div class="column is-centered">
+                    <article class="media" style="border:0px;">
+                      <div class="media-content">
+                        <div class="content">
+                          <figure class="image is-64x64 is-inline-block">
+                            <img src="https://inforpatissien-api.azurewebsites.net/assets/images/users/bro.png" class="is-rounded" alt="Image">
+                          </figure>
+                          <p>
+                            <strong>L'inforpatissien</strong> <small>@junior</small>
+                            <br>
+                            Et maintenant fais nous découvrir tes talents de photographe !
+                          </p>
+                        </div>
+                      </div>
+                    </article>
                   </div>
                   <div class="column">
                     <div class="card">
@@ -82,8 +133,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="column">
                   </div>
                 </div>
               </div>
