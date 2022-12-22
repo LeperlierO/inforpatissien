@@ -45,9 +45,8 @@
                   </div>
                   <div class="media-content">
                     <div class="content">
+                      <app-inforpatissien-title></app-inforpatissien-title>
                       <p>
-                        <strong>L'inforpatissien</strong> <small>@junior</small>
-                        <br>
                         Bravoooooooo ! Tu as réussi à terminer la recette mystère jusqu'au bout. Enfin... il te reste quelques petites étapes à terminer afin de devenir un vrai inforpatissien. Suis les étapes dans l'ordre, et découvre le résultat !
                       </p>
                     </div>
@@ -77,9 +76,8 @@
                   </div>
                   <div class="media-content">
                     <div class="content">
+                      <app-inforpatissien-title></app-inforpatissien-title>
                       <p>
-                        <strong>L'inforpatissien</strong> <small>@junior</small>
-                        <br>
                         Sélectionne le nom de la recette que tu viens de réaliser.
                       </p>
                     </div>
@@ -99,9 +97,8 @@
                           <figure class="image is-64x64 is-inline-block">
                             <img src="https://inforpatissien-api.azurewebsites.net/assets/images/users/bro.png" class="is-rounded" alt="Image">
                           </figure>
+                          <app-inforpatissien-title></app-inforpatissien-title>
                           <p>
-                            <strong>L'inforpatissien</strong> <small>@junior</small>
-                            <br>
                             Et maintenant fais nous découvrir tes talents de photographe !
                           </p>
                         </div>
@@ -178,8 +175,25 @@
                   </div>
 
               </div>
-              <div class="step-content has-text-centered" [ngClass]="{'is-active':activeStep==5}">
-                <button class="button is-primary" (click)="createRealization()">Visualiser ma première inforpatisserie</button>
+              <div class="step-content" [ngClass]="{'is-active':activeStep==5}">
+                <article class="media mb-5" style="border:0px;">
+                  <div class="media-left">
+                    <figure class="image is-64x64">
+                      <img src="https://inforpatissien-api.azurewebsites.net/assets/images/users/bro.png" class="is-rounded" alt="Image">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <app-inforpatissien-title></app-inforpatissien-title>
+                      <p>
+                        Allez, tu peux enfin souffler, ton inforpatisserie est enfin terminée ! Tu peux maintenant admirer ton beau travail, encore bravo ! 🎉
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                <div class="has-text-centered">
+                  <button class="button is-primary" (click)="createRealization()">Visualiser mon inforpatisserie</button>
+                </div>
               </div>
             </div>
             <div class="steps-actions">

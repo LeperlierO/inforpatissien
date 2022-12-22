@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   playSound(){
     var audio = new Audio('../assets/sounds/sound1.m4a');
-    audio.play();
+    //audio.play();
   }
 
 }

@@ -37,6 +37,7 @@ import { RecipeValidationComponent } from './recipe-validation/recipe-validation
 import { RealizationCommentComponent } from './realization-comment/realization-comment.component';
 import { RealizationPhotosFormComponent } from './realization-photos-form/realization-photos-form.component';
 import { RecipeStepDescriptionPipe } from './pipes/recipe-step-description.pipe';
+import { InforpatissienTitleComponent } from './inforpatissien-title/inforpatissien-title.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { RecipeStepDescriptionPipe } from './pipes/recipe-step-description.pipe'
     RecipeValidationComponent,
     RealizationCommentComponent,
     RealizationPhotosFormComponent,
-    RecipeStepDescriptionPipe
+    RecipeStepDescriptionPipe,
+    InforpatissienTitleComponent
   ],
   imports: [
     BrowserModule,
