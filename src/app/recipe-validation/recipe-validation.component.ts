@@ -7,7 +7,7 @@ import { BodyRealization, Realization } from '../models/realization';
 import { BodyId } from '../models/common';
 import { Token, User } from '../models/auth';
 import { AuthService } from '../services/auth.service';
-import { Time } from "@angular/common";
+import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-recipe-validation',
@@ -33,7 +33,7 @@ export class RecipeValidationComponent implements OnInit {
   photoUrl: string = 'https://inforpatissien-api.azurewebsites.net/assets/images/admin/loader.gif';
   photoSuccess: boolean = false;
 
-  constructor(private realizationService: RealizationService,private router: Router, private authService: AuthService) { }
+  constructor(private realizationService: RealizationService,private router: Router, private authService: AuthService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.authService.tokenSubject.subscribe(
@@ -80,8 +80,11 @@ export class RecipeValidationComponent implements OnInit {
         
       }
     }
+    else if(this.activeStep == 4){
+      if(this.token != null ) this.token.videoUrl += "&autoplay=1";
+    }
 
-    if(authorize && this.activeStep < 5) this.activeStep += 1;
+    if(authorize && this.activeStep < 6) this.activeStep += 1;
     else if(error.length > 0) toast({ message: error, type: 'is-danger', position:'top-center' });
   }
 

@@ -11,6 +11,7 @@ export class Token{
     connection!: Date;
     avatarUrl!: string;
     difficulty!: number;
+    videoUrl!: string;
 }
 
 export class User{

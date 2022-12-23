@@ -32,6 +32,12 @@
             <div class="step-item" [ngClass]="{'is-active':activeStep==5}">
               <div class="step-marker">5</div>
               <div class="step-details">
+                <p class="step-title">Fiesta</p>
+              </div>
+            </div>
+            <div class="step-item" [ngClass]="{'is-active':activeStep==6}">
+              <div class="step-marker">6</div>
+              <div class="step-details">
                 <p class="step-title">Réalisation</p>
               </div>
             </div>
@@ -176,6 +182,11 @@
 
               </div>
               <div class="step-content" [ngClass]="{'is-active':activeStep==5}">
+                <figure class="image is-16by9">
+                  <iframe *ngIf="token != null" class="has-ratio" width="640" height="360" [src]="token.videoUrl | safe" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+                </figure>
+              </div>
+              <div class="step-content" [ngClass]="{'is-active':activeStep==6}">
                 <article class="media mb-5" style="border:0px;">
                   <div class="media-left">
                     <figure class="image is-64x64">
@@ -201,7 +212,7 @@
                 <a data-nav="previous" class="button is-light" (click)="previousStep()" [ngClass]="{'hidden':activeStep==1}">Précédent</a>
               </div>
               <div class="steps-action">
-                <a data-nav="next" class="button is-light" (click)="nextStep()" [ngClass]="{'hidden':activeStep==5}">Suivant</a>
+                <a data-nav="next" class="button is-light" (click)="nextStep()" [ngClass]="{'hidden':activeStep==6}">Suivant</a>
               </div>
             </div>
           </div>
