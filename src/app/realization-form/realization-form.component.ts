@@ -112,8 +112,6 @@ export class RealizationFormComponent implements OnInit {
 
       if(fileList[0].type != "image/jpeg" && fileList[0].type != "image/png") {
         errorMessage = "Le fichier doit être une image de type jpeg ou png";
-      }else if(fileList[0].size > 800000 ){
-        errorMessage = "Le taille du fichier ne doit pas excéder 800 Ko";
       }
 
       if(errorMessage == ""){
