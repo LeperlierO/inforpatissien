@@ -1,5 +1,5 @@
 <div class="modal-background"></div>
-<div class="modal-content" style="width: 999px!important;">
+<div class="modal-content" style="width: 999px;" [ngClass]="{'without-ingredients' : recipeIngredients.length == 0}">
   <div class="box">
     <article class="media">
       <div class="media-content">
@@ -8,14 +8,14 @@
             {{step.name}}
           </div>
           <div class="columns is-flex is-vcentered">
-            <div class="column has-text-centered" style="border-right: 2px solid #DB9D57;">{{step.description | recipeStepDescription:step:token}}</div>
-            <div class="column">
+            <div class="column has-text-centered">{{step.description | recipeStepDescription:step:token}}</div>
+            <div class="column" *ngIf="recipeIngredients.length > 0">
               <div class="tags are-medium">
                 <span class="tag is-rounded" style="cursor:pointer" [ngClass]="{'is-primary':selectedIngredients.includes(ingredient)}" *ngFor="let ingredient of recipeIngredients;" (click)="clickIngredient(ingredient)">{{ingredient.name}}</span>
               </div>
             </div>
           </div>
-          <div class="field has-text-right">
+          <div class="field has-text-right" *ngIf="recipeIngredients.length > 0">
             <button class="button is-primary" (click)="validationIngredients()" [disabled]="step.success">Valider</button>
           </div>
         </div>
