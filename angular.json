@@ -25,7 +25,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/web.config"
+              "src/web.config",
+              "src/_redirects"
             ],
             "styles": [
               "node_modules/bulma/css/bulma.min.css",
@@ -100,7 +101,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/web.config"
+              "src/web.config",
+              "src/_redirects"
             ],
             "styles": [
               "node_modules/bulma/css/bulma.min.css",
