@@ -39,6 +39,7 @@ import { RealizationPhotosFormComponent } from './realization-photos-form/realiz
 import { RecipeStepDescriptionPipe } from './pipes/recipe-step-description.pipe';
 import { InforpatissienTitleComponent } from './inforpatissien-title/inforpatissien-title.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { SafePipe } from './pipes/safe.pipe';
     RealizationPhotosFormComponent,
     RecipeStepDescriptionPipe,
     InforpatissienTitleComponent,
-    SafePipe
+    SafePipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
