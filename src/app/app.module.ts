@@ -11,7 +11,6 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { RealizationCardComponent } from './realization-card/realization-card.component';
 import { RealizationDetailsComponent } from './realization-details/realization-details.component';
 import { RealizationHeaderComponent } from './realization-header/realization-header.component';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -75,7 +74,6 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    IvyCarouselModule,
     AngularFireModule,
     FormsModule,
     ReactiveFormsModule,

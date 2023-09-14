@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
-    "angular-responsive-carousel": "^2.1.2",
     "bulma": "^0.9.4",
     "bulma-calendar": "^6.1.18",
     "bulma-divider": "^0.2.0",
