@@ -26,15 +26,14 @@ export class RealizationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     let page = this.route.snapshot.paramMap.get('page') ?? 1;
     this.getRealizations(+page);
   }
 
-  getRealizations(page: number){
+  getRealizations(page: number, search: string = ''){
 
-    window.scroll(0,0);
-    
-    this.realizationService.getRealizations(page)
+    this.realizationService.getRealizations(page, search)
     .subscribe({
       next: (response) => {
         this.realizations = response.data;
@@ -47,4 +46,9 @@ export class RealizationListComponent implements OnInit {
       }
     })
   }
+
+  filterRealizations(event: any){
+    this.getRealizations(1, event.target.value ?? '')
+  }
+
 }

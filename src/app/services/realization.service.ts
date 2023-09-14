@@ -14,11 +14,13 @@ export class RealizationService {
 
   constructor(private http: HttpClient) { }
 
-  getRealizations(page: number): Observable<RealizationPagination>{
+  getRealizations(page: number, search: string = ''): Observable<RealizationPagination>{
     let params = new HttpParams().set('page', page);
     return this.http
-      .get<RealizationPagination>(
-        `${environment.apiURL}${this.realizationPath}`, {params: params}
+      .post<RealizationPagination>(
+        `${environment.apiURL}${this.realizationPath}`, 
+        {"search" : search},
+        {params: params}
       ).pipe(
         map((response: RealizationPagination) => {
           if(response.data[0] != null) response.data.forEach(r => {
