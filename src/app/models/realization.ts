@@ -11,7 +11,9 @@ export class Realization
     date!: Date;
     success!: Setting;
     time!: Time;
-    cost!: number
+    cost!: number;
+    source!: string;
+    notes!: string;
     photos!: Photo[];
     mainPhoto!: Photo;
 }
@@ -25,6 +27,12 @@ export class BodyRealization{
     time!: Time;
     cost!: number
     mainPhoto!: string;
+}
+
+export class BodyRealizationAdditionals{
+    id!: number;
+    source!: string;
+    notes!: string;
 }
 
 export class MiniRealization

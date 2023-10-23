@@ -39,6 +39,7 @@ import { RecipeStepDescriptionPipe } from './pipes/recipe-step-description.pipe'
 import { InforpatissienTitleComponent } from './inforpatissien-title/inforpatissien-title.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { FooterComponent } from './footer/footer.component';
+import { RealizationFormAdditionalsComponent } from './realization-form-additionals/realization-form-additionals.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { FooterComponent } from './footer/footer.component';
     RecipeStepDescriptionPipe,
     InforpatissienTitleComponent,
     SafePipe,
-    FooterComponent
+    FooterComponent,
+    RealizationFormAdditionalsComponent
   ],
   imports: [
     BrowserModule,

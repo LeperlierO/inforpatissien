@@ -1,0 +1,36 @@
+<div class="modal-background"></div>
+<div class="modal-card">
+  <header class="modal-card-head">
+    <p class="modal-card-title">Informations additionnelles</p>
+    <button class="delete" aria-label="close" (click)="closeModal()"></button>
+  </header>
+  <section class="modal-card-body">
+    <section class="section is-small" style="padding-top:0px; padding-bottom: 0px;">
+      <form [formGroup]="realizationForm" (ngSubmit)="onSubmitForm()">
+        <div class="container is-max-desktop is-centered">
+
+          <div class="field">
+            <label class="label">Source</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Source" [formControl]="source"
+                formControlName="source">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Notes</label>
+            <div class="control">
+              <textarea class="input" type="text" placeholder="Cuisson, propotions, etc" [formControl]="notes"
+              formControlName="notes"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <button class="button is-primary" type="submit" [disabled]="realizationForm.invalid"
+              [ngClass]="{'is-loading':loading}">Enregistrer</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </section>
+</div>

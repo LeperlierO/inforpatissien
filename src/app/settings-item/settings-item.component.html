@@ -1,3 +1,7 @@
+<div class="modal" [ngClass]="{'is-active': additionalsModalIsActive}">
+  <app-realization-form-additionals *ngIf="additionalsModalIsActive" (closeEvent)="displayAdditionalsModal($event)" [show]="showSubject.asObservable()" [id]="realization.id"></app-realization-form-additionals>
+</div>
+
 <div class="modal" [ngClass]="{'is-active': editModalIsActive}">
   <app-realization-form *ngIf="editModalIsActive" [show]="showSubject.asObservable()"></app-realization-form>
 </div>

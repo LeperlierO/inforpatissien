@@ -15,8 +15,9 @@ export class SettingsItemComponent implements OnInit {
   @Input() realization!: MiniRealization;
 
   photosModalIsActive = false;
-
   editModalIsActive = false;
+  additionalsModalIsActive = false;
+
   showSubject: Subject<MiniRealization> = new Subject<MiniRealization>();
   
   constructor(private realizationService: RealizationService) { }
@@ -30,11 +31,15 @@ export class SettingsItemComponent implements OnInit {
   }
 
   editAdditionals(){
-    alert('edit additionals');
+    this.additionalsModalIsActive = true;
   }
 
   displayPhotosModal(active: boolean){
     this.photosModalIsActive = active;
+  }
+
+  displayAdditionalsModal(active: boolean){
+    this.additionalsModalIsActive = active;
   }
 
   delete(){

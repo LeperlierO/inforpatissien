@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from '../models/environment ';
-import { BodyRealization, MiniRealization, Realization, RealizationPagination } from '../models/realization';
+import { BodyRealization, BodyRealizationAdditionals, MiniRealization, Realization, RealizationPagination } from '../models/realization';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +49,7 @@ export class RealizationService {
         `${environment.apiURL}${this.realizationPath}/` + id
       ).pipe(
         map((response: Realization) => {
+          console.log(response);
           const mainPhoto = response.photos.find(p => p.main)!;
   
           if(mainPhoto != null){
@@ -64,6 +65,14 @@ export class RealizationService {
     return this.http
     .put<Realization>(
       `${environment.apiURL}${this.realizationPath}`,
+      {source:'toto',notes:'tata'}
+    );
+  }
+
+  setRealizationAdditionals(body: BodyRealizationAdditionals):Observable<string>{
+    console.log(body);
+    return this.http.patch<string>(
+      `${environment.apiURL}${this.realizationPath}/` + body.id,
       body
     );
   }
