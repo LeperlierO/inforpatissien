@@ -1,7 +1,7 @@
 <div class="container is-max-widescreen section" *ngIf="realizations !== undefined && realizations !== null">
   <div class="columns box">
     <div class="column is-three-quarters"><h1 class="title has-text-primary">Réalisations</h1></div>
-    <div class="column"><input class="input is-rounded is-primary is-small" style="height: 100%;" type="text" placeholder="Nom, ingrédients, date ..." (keydown.enter)="filterRealizations($event)"></div>
+    <div class="column"><input [(ngModel)]="searchValue" class="input is-rounded is-primary is-small" style="height: 100%;" type="text" placeholder="Nom, ingrédients, date ..." (keydown.enter)="filterRealizations($event)"></div>
   </div>
   <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
@@ -68,14 +68,14 @@
   </div>
 
   <nav *ngIf="realizations[0] != null && realizations[0] != undefined" class="section pagination is-centered" role="navigation" aria-label="pagination">
-    <a class="pagination-previous" [attr.disabled] = "current <= 1 ? 'disabled' : null" [routerLink]="['/realisations/page', current-1]">Précédent</a>
-    <a class="pagination-next" [attr.disabled] = "current >= size ? 'disabled' : null" [routerLink]="['/realisations/page', current+1]">Suivant</a>
+    <a class="pagination-previous" [attr.disabled] = "current <= 1 ? 'disabled' : null" [routerLink]="['/realisations/page', current-1]" [queryParams]="{search : searchValue ? searchValue : null}">Précédent</a>
+    <a class="pagination-next" [attr.disabled] = "current >= size ? 'disabled' : null" [routerLink]="['/realisations/page', current+1]" [queryParams]="{search : searchValue ? searchValue : null}">Suivant</a>
     <ul class="pagination-list">
-      <li><a class="pagination-link" [routerLink]="['/realisations/page', 1]">1</a></li>
+      <li><a class="pagination-link" [routerLink]="['/realisations/page', 1]" [queryParams]="{search : searchValue ? searchValue : null}">1</a></li>
       <li><span class="pagination-ellipsis">&hellip;</span></li>
       <li><a class="pagination-link is-current" aria-current="page">{{current}}</a></li>
       <li><span class="pagination-ellipsis">&hellip;</span></li>
-      <li><a class="pagination-link" [routerLink]="['/realisations/page', size]">{{size}}</a></li>
+      <li><a class="pagination-link" [routerLink]="['/realisations/page', size]" [queryParams]="{search : searchValue ? searchValue : null}">{{size}}</a></li>
     </ul>
   </nav>
 

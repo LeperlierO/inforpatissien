@@ -15,6 +15,7 @@ export class RealizationListComponent implements OnInit {
   current!: number;
   size!: number;
   error = '';
+  searchValue: string = '';
 
   constructor(private realizationService: RealizationService, private router: Router, private route: ActivatedRoute) { 
     router.events.subscribe((val) => {
@@ -32,6 +33,8 @@ export class RealizationListComponent implements OnInit {
   }
 
   getRealizations(page: number, search: string = ''){
+
+    if(search == '') this.route.queryParams.subscribe(params => search = params['search']);
 
     this.realizationService.getRealizations(page, search)
     .subscribe({

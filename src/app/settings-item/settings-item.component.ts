@@ -29,6 +29,10 @@ export class SettingsItemComponent implements OnInit {
     this.showSubject.next(this.realization);
   }
 
+  editAdditionals(){
+    alert('edit additionals');
+  }
+
   displayPhotosModal(active: boolean){
     this.photosModalIsActive = active;
   }
