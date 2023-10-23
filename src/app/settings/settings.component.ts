@@ -13,7 +13,7 @@ import { Subject } from 'rxjs';
 })
 export class SettingsComponent implements OnInit {
 
-  showSubject: Subject<void> = new Subject<void>();
+  showSubject: Subject<MiniRealization> = new Subject<MiniRealization>();
   realizations!: MiniRealization[];
   error: any;
 
@@ -46,7 +46,7 @@ export class SettingsComponent implements OnInit {
     }
     else
     {
-      this.showSubject.next();
+      this.showSubject.next(new MiniRealization());
     }
   }
 

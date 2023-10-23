@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MiniRealization } from '../models/realization';
 import { toast } from 'bulma-toast';
 import { RealizationService } from '../services/realization.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-settings-item',
@@ -14,6 +15,9 @@ export class SettingsItemComponent implements OnInit {
   @Input() realization!: MiniRealization;
 
   photosModalIsActive = false;
+
+  editModalIsActive = false;
+  showSubject: Subject<MiniRealization> = new Subject<MiniRealization>();
   
   constructor(private realizationService: RealizationService) { }
 
@@ -21,7 +25,8 @@ export class SettingsItemComponent implements OnInit {
   }
 
   edit(){
-    toast({ message: "edit " + this.realization.name, type: 'is-success', position:'top-center' });
+    this.editModalIsActive = true;
+    this.showSubject.next(this.realization);
   }
 
   displayPhotosModal(active: boolean){

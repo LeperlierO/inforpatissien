@@ -1,3 +1,7 @@
+<div class="modal" [ngClass]="{'is-active': editModalIsActive}">
+  <app-realization-form *ngIf="editModalIsActive" [show]="showSubject.asObservable()"></app-realization-form>
+</div>
+
 <div class="list-item">
     <div class="list-item-image">
       <figure class="image is-48x48">

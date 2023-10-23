@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { toast } from 'bulma-toast';
 import { Observable, Subscription } from 'rxjs';
 import { BodyId } from '../models/common';
-import { BodyRealization, Realization } from '../models/realization';
+import { BodyRealization, MiniRealization, Realization } from '../models/realization';
 import { RealizationService } from '../services/realization.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class RealizationFormComponent implements OnInit {
   @Output() closeEvent = new EventEmitter<boolean>(); // Permet de mettre à jour la liste des réalisations quand la modal est fermée : event envoyé au parent
   
   private showSubscription: Subscription = new Subscription(); 
-  @Input() show!: Observable<void>; // Permet de savoir quand la modal est ouverte alors il faut ré initialiser les champs du form
+  @Input() show!: Observable<MiniRealization>; // Permet de savoir quand la modal est ouverte alors il faut ré initialiser les champs du form
 
   // Permet de gérer les erreurs de champs obligatoires
   realizationForm: FormGroup | any;
@@ -35,7 +35,7 @@ export class RealizationFormComponent implements OnInit {
   constructor(private realizationService: RealizationService, private formBuilder: FormBuilder) { this.initForm(); }
 
   ngOnInit(): void {
-    this.showSubscription = this.show.subscribe(() => 
+    this.showSubscription = this.show.subscribe((realization : MiniRealization) => 
       {
         this.initForm();
         this.loading = false;
