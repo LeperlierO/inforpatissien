@@ -90,7 +90,7 @@ export class RealizationFormComponent implements OnInit {
       realization.success = new BodyId();
       realization.success.id = formValue['success'];
       realization.mainPhoto = '';
-  
+
       this.realizationService.uploadFile(this.file, realization.code, image).subscribe(
         (response: any) => {
           realization.mainPhoto = response.link;

@@ -65,7 +65,7 @@ export class RealizationService {
     return this.http
     .put<Realization>(
       `${environment.apiURL}${this.realizationPath}`,
-      {source:'toto',notes:'tata'}
+      body
     );
   }
 
